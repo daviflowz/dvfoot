@@ -3,9 +3,9 @@ import React, { useState } from 'react';
 import { 
   House, 
   Users, 
-  GameController, 
   Calendar, 
-  Newspaper, 
+  SoccerBall, 
+  Chats, 
   SignOut,
   Bell,
   MagnifyingGlass,
@@ -27,16 +27,16 @@ const Navigation: React.FC = () => {
   const menuAdministrador = [
     { id: '/admin', label: 'Início', icon: House },
     { id: '/admin/elenco', label: 'Elenco', icon: Users },
-    { id: '/admin/jogos', label: 'Jogos', icon: Calendar },
-    { id: '/admin/eventos', label: 'Eventos', icon: GameController },
-    { id: '/admin/noticias', label: 'Notícias', icon: Newspaper, disabled: true },
+    { id: '/admin/jogos', label: 'Jogos', icon: SoccerBall },
+    { id: '/admin/eventos', label: 'Eventos', icon: Calendar },
+    { id: '/admin/noticias', label: 'Central', icon: Chats, disabled: true },
   ];
 
   const menuJogador = [
     { id: '/jogador', label: 'Início', icon: House },
-    { id: '/jogador/jogos', label: 'Jogos', icon: Calendar },
-    { id: '/jogador/eventos', label: 'Eventos', icon: GameController },
-    { id: '/jogador/noticias', label: 'Notícias', icon: Newspaper, disabled: true },
+    { id: '/jogador/jogos', label: 'Jogos', icon: SoccerBall },
+    { id: '/jogador/eventos', label: 'Eventos', icon: Calendar },
+    { id: '/jogador/noticias', label: 'Central', icon: Chats, disabled: true },
     { id: '/jogador/perfil', label: 'Perfil', icon: Users },
   ];
 

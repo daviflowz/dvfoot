@@ -6,7 +6,7 @@ import { Input } from '../ui/input';
 import { Badge } from '../ui/badge';
 import { Avatar, AvatarImage, AvatarFallback } from '../ui/avatar';
 import {
-  Newspaper,
+  Chats,
   Calendar,
   Eye,
   ThumbsUp,
@@ -56,9 +56,9 @@ const GestaoNoticias: React.FC = () => {
       {/* Header */}
       <div className="space-y-4">
         <div>
-          <h1 className="text-3xl font-bold">Gestão de Notícias</h1>
+          <h1 className="text-3xl font-bold">Gestão da Central</h1>
           <p className="text-muted-foreground">
-            Publique e gerencie notícias do time
+            Publique e gerencie conteúdo da central do time
           </p>
         </div>
 
@@ -68,11 +68,11 @@ const GestaoNoticias: React.FC = () => {
             <CardContent className="p-4">
               <div className="flex items-center space-x-3">
                 <div className="p-2 bg-primary/10 rounded-lg">
-                  <Newspaper className="w-5 h-5 text-primary" />
+                  <Chats className="w-5 h-5 text-primary" />
                 </div>
                 <div>
                   <p className="text-2xl font-bold">{estatisticas.totalNoticias}</p>
-                  <p className="text-xs text-muted-foreground">Notícias Publicadas</p>
+                  <p className="text-xs text-muted-foreground">Publicações da Central</p>
                 </div>
               </div>
             </CardContent>
@@ -131,7 +131,7 @@ const GestaoNoticias: React.FC = () => {
             <div className="relative flex-1 max-w-md">
               <MagnifyingGlass className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
               <Input
-                placeholder="Buscar notícias..."
+                placeholder="Buscar na central..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="pl-10"
@@ -146,7 +146,7 @@ const GestaoNoticias: React.FC = () => {
         </CardContent>
       </Card>
 
-      {/* Lista de Notícias */}
+              {/* Lista da Central */}
       <div className="grid gap-6">
         {noticiasFiltradas.map((noticia, index) => (
           <Card key={noticia.id} className="bg-white rounded-xl border sm:shadow-card shadow-none card-hover animate-scale-in overflow-hidden" style={{ animationDelay: `${index * 50}ms` }}>
@@ -276,20 +276,20 @@ const GestaoNoticias: React.FC = () => {
           <CardContent className="p-12 text-center">
             <div className="space-y-4">
               <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mx-auto">
-                <Newspaper className="w-8 h-8 text-muted-foreground" />
+                <Chats className="w-8 h-8 text-muted-foreground" />
               </div>
               <div>
-                <h3 className="font-semibold">Nenhuma notícia encontrada</h3>
+                <h3 className="font-semibold">Nenhuma publicação encontrada</h3>
                 <p className="text-muted-foreground">
                   {searchTerm 
                     ? 'Tente ajustar o termo de busca'
-                    : 'Publique a primeira notícia do time'
+                    : 'Publique o primeiro conteúdo da central'
                   }
                 </p>
               </div>
               <Button className="gradient-primary shadow-glow">
                 <Plus className="w-4 h-4 mr-2" />
-                {searchTerm ? 'Limpar Busca' : 'Publicar Primeira Notícia'}
+                {searchTerm ? 'Limpar Busca' : 'Publicar Primeiro Conteúdo'}
               </Button>
             </div>
           </CardContent>

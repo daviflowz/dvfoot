@@ -4,7 +4,7 @@ import React from 'react';
 import { Badge } from '../ui/badge';
 import { Button } from '../ui/button';
 import { 
-  Calendar, 
+  SoccerBall, 
   Trophy,
   TrendUp,
   Medal,
@@ -55,7 +55,7 @@ const DashboardJogador: React.FC = () => {
                     { icon: TrendUp, value: `${jogadorData.percentualPresenca}%`, label: 'Presença em Jogos' },
                     { icon: Trophy, value: jogadorData.trofeus.length, label: 'Troféus Conquistados' },
                     { icon: Medal, value: jogadorData.medalhas.length, label: 'Medalhas' },
-                    { icon: Calendar, value: proximosJogos.length, label: 'Jogos Disponíveis' }
+                    { icon: SoccerBall, value: proximosJogos.length, label: 'Jogos Disponíveis' }
                   ].map((stat, index) => (
                     <div 
                       key={stat.label}
@@ -231,7 +231,7 @@ const DashboardJogador: React.FC = () => {
       {/* Últimas Notícias */}
       <section className="px-4 mt-8 mb-24" style={getAnimationStyle(22)}>
         <h2 className="text-lg font-bold text-[#1E293B] mb-1 text-left flex items-center gap-2">
-          <Bell className="w-5 h-5 text-[#4C1D95]" /> Últimas Notícias
+                          <Bell className="w-5 h-5 text-[#4C1D95]" /> Últimas da Central
         </h2>
         <p className="text-[#1E293B] mb-4 text-left">Novidades do time</p>
         <div className="space-y-4">

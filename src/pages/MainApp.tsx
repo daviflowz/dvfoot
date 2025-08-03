@@ -120,14 +120,14 @@ const MainApp: React.FC = () => {
         if (usuario.tipo === 'administrador') {
           const GestaoNoticias = React.lazy(() => import('../components/admin/GestaoNoticias'));
           return (
-            <React.Suspense fallback={<LoadingSpinner size="md" text="Carregando notícias..." className="py-12" />}>
+            <React.Suspense fallback={<LoadingSpinner size="md" text="Carregando central..." className="py-12" />}>
               <GestaoNoticias />
             </React.Suspense>
           );
         } else {
           const NoticiasJogador = React.lazy(() => import('../components/player/NoticiasJogador'));
           return (
-            <React.Suspense fallback={<LoadingSpinner size="md" text="Carregando notícias..." className="py-12" />}>
+            <React.Suspense fallback={<LoadingSpinner size="md" text="Carregando central..." className="py-12" />}>
               <NoticiasJogador />
             </React.Suspense>
           );

@@ -75,7 +75,7 @@ const NoticiasJogador: React.FC = () => {
       {/* Header */}
       <div className="space-y-4">
         <div>
-          <h1 className="text-3xl font-bold">Notícias do Time</h1>
+          <h1 className="text-3xl font-bold">Central do Time</h1>
           <p className="text-muted-foreground">
             Fique por dentro das últimas novidades
           </p>
@@ -91,7 +91,7 @@ const NoticiasJogador: React.FC = () => {
                 </div>
                 <div>
                   <p className="text-2xl font-bold">{estatisticas.totalNoticias}</p>
-                  <p className="text-xs text-muted-foreground">Total de Notícias</p>
+                  <p className="text-xs text-muted-foreground">Total de Publicações</p>
                 </div>
               </div>
             </CardContent>
@@ -134,7 +134,7 @@ const NoticiasJogador: React.FC = () => {
             <div className="relative flex-1">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
               <Input
-                placeholder="Buscar notícias..."
+                placeholder="Buscar na central..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="pl-10"
@@ -158,7 +158,7 @@ const NoticiasJogador: React.FC = () => {
         </CardContent>
       </Card>
 
-      {/* Feed de Notícias */}
+              {/* Feed da Central */}
       <div className="space-y-6">
         {noticiasFiltradas.map((noticia, index) => (
           <Card key={noticia.id} className="card-hover sm:shadow-card shadow-none animate-scale-in overflow-hidden md:flex md:flex-row" style={{ animationDelay: `${index * 100}ms` }}>
@@ -308,7 +308,7 @@ const NoticiasJogador: React.FC = () => {
                 <p className="text-muted-foreground">
                   {searchTerm || selectedCategory !== 'todas'
                     ? 'Tente ajustar os filtros de busca'
-                    : 'Não há notícias disponíveis no momento'
+                    : 'Não há publicações disponíveis no momento'
                   }
                 </p>
               </div>

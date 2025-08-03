@@ -12,10 +12,8 @@ import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import { Label } from '../ui/label';
 import { UserPlus } from 'phosphor-react';
-import { useCascadeAnimation } from '../../hooks/use-cascade-animation';
 
 const GestaoJogadores: React.FC = () => {
-  const { getAnimationStyle } = useCascadeAnimation({ delay: 100, stagger: 50 });
   const {
     filteredPlayers,
     stats,
@@ -125,7 +123,7 @@ const GestaoJogadores: React.FC = () => {
   };
 
   // Estatísticas para o header
-  const headerStats = isDataReady ? [
+  const headerStats = stats ? [
     {
       title: 'Jogadores',
       value: stats!.totalJogadores,
@@ -189,9 +187,9 @@ const GestaoJogadores: React.FC = () => {
   }
 
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 p-4 space-y-6">
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 p-4 space-y-6 animate-fade-in">
         {/* Header com estatísticas */}
-        <div style={getAnimationStyle(0)}>
+        <div>
           <PageHeader
             title="Gestão do Elenco"
             description="Gerencie jogadores e comissão técnica"
@@ -206,7 +204,7 @@ const GestaoJogadores: React.FC = () => {
 
         {/* Filtros e Busca */}
         {isDataReady && (
-          <div className="flex justify-center" style={getAnimationStyle(1)}>
+          <div className="flex justify-center">
             <SearchFilters
               searchTerm={filters.searchTerm}
               onSearchChange={handleSearchChange}
@@ -229,7 +227,7 @@ const GestaoJogadores: React.FC = () => {
         )}
 
         {/* Lista de Jogadores */}
-        <div style={getAnimationStyle(2)}>
+        <div>
           {!isDataReady ? (
             <div className="flex items-center justify-center py-12">
               <div className="text-center">
@@ -239,10 +237,11 @@ const GestaoJogadores: React.FC = () => {
             </div>
           ) : filteredPlayers.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 justify-items-center">
-              {filteredPlayers.map((jogador) => (
+              {filteredPlayers.map((jogador, index) => (
                 <div 
                   key={jogador.id} 
-                  className="transition-smooth hover-lift w-full max-w-xl"
+                  className="transition-smooth hover-lift w-full max-w-xl animate-scale-in"
+                  style={{ animationDelay: `${index * 50}ms` }}
                 >
                   <PlayerCard
                     jogador={jogador}
