@@ -176,69 +176,69 @@ const GestaoEventos: React.FC = () => {
   };
 
   return (
-    <div className="space-y-3 sm:space-y-6 animate-fade-in">
+    <div className="space-y-3 sm:space-y-6 animate-fade-in px-4">
       {/* Header */}
       <div className="space-y-3 sm:space-y-4">
         <div>
-          <h1 className="text-xl sm:text-3xl font-bold">Gestão de Eventos</h1>
-          <p className="text-sm sm:text-base text-muted-foreground">
+          <h1 className="text-xl sm:text-3xl font-bold text-[#1E293B]">Gestão de Eventos</h1>
+          <p className="text-sm sm:text-base text-[#1E293B]/70">
             Crie e gerencie eventos do time
           </p>
         </div>
 
         {/* Estatísticas */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4">
-          <Card className="gradient-card shadow-card">
+          <Card className="bg-white shadow-card">
             <CardContent className="p-3 sm:p-4">
               <div className="flex items-center space-x-2 sm:space-x-3">
-                <div className="p-1.5 sm:p-2 bg-primary/10 rounded-lg">
-                  <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+                <div className="p-1.5 sm:p-2 bg-[#4C1D95]/10 rounded-lg">
+                  <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-[#4C1D95]" />
                 </div>
                 <div>
-                  <p className="text-lg sm:text-2xl font-bold">{estatisticas.total}</p>
-                  <p className="text-xs text-muted-foreground">Total</p>
+                  <p className="text-lg sm:text-2xl font-bold text-[#1E293B]">{estatisticas.total}</p>
+                  <p className="text-xs text-[#1E293B]/70">Total</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="gradient-card shadow-card">
+          <Card className="bg-white shadow-card">
             <CardContent className="p-3 sm:p-4">
               <div className="flex items-center space-x-2 sm:space-x-3">
-                <div className="p-1.5 sm:p-2 bg-success/10 rounded-lg">
-                  <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-success" />
+                <div className="p-1.5 sm:p-2 bg-[#22C55E]/10 rounded-lg">
+                  <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-[#22C55E]" />
                 </div>
                 <div>
-                  <p className="text-lg sm:text-2xl font-bold">{estatisticas.proximosEventos}</p>
-                  <p className="text-xs text-muted-foreground">Próximos</p>
+                  <p className="text-lg sm:text-2xl font-bold text-[#1E293B]">{estatisticas.proximosEventos}</p>
+                  <p className="text-xs text-[#1E293B]/70">Próximos</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="gradient-card shadow-card">
+          <Card className="bg-white shadow-card">
             <CardContent className="p-3 sm:p-4">
               <div className="flex items-center space-x-2 sm:space-x-3">
-                <div className="p-1.5 sm:p-2 bg-info/10 rounded-lg">
-                  <Users className="w-4 h-4 sm:w-5 sm:h-5 text-info" />
+                <div className="p-1.5 sm:p-2 bg-[#3B82F6]/10 rounded-lg">
+                  <Users className="w-4 h-4 sm:w-5 sm:h-5 text-[#3B82F6]" />
                 </div>
                 <div>
-                  <p className="text-lg sm:text-2xl font-bold">{estatisticas.mediaConfirmacoes}%</p>
-                  <p className="text-xs text-muted-foreground">Média Confirmações</p>
+                  <p className="text-lg sm:text-2xl font-bold text-[#1E293B]">{estatisticas.mediaConfirmacoes}%</p>
+                  <p className="text-xs text-[#1E293B]/70">Média Confirmações</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="gradient-card shadow-card">
+          <Card className="bg-white shadow-card">
             <CardContent className="p-3 sm:p-4">
               <div className="flex items-center space-x-2 sm:space-x-3">
-                <div className="p-1.5 sm:p-2 bg-warning/10 rounded-lg">
-                  <Archive className="w-4 h-4 sm:w-5 sm:h-5 text-warning" />
+                <div className="p-1.5 sm:p-2 bg-[#F59E0B]/10 rounded-lg">
+                  <Archive className="w-4 h-4 sm:w-5 sm:h-5 text-[#F59E0B]" />
                 </div>
                 <div>
-                  <p className="text-lg sm:text-2xl font-bold">{estatisticas.eventosPassados}</p>
-                  <p className="text-xs text-muted-foreground">Realizados</p>
+                  <p className="text-lg sm:text-2xl font-bold text-[#1E293B]">{estatisticas.eventosPassados}</p>
+                  <p className="text-xs text-[#1E293B]/70">Realizados</p>
                 </div>
               </div>
             </CardContent>
@@ -248,7 +248,7 @@ const GestaoEventos: React.FC = () => {
 
       {/* Controles */}
       <div className="flex justify-center">
-        <Card className="shadow-card">
+        <Card className="bg-white shadow-card">
           <CardContent className="p-3 sm:p-6">
             <div className="flex flex-col gap-4 items-center">
               <div className="flex flex-wrap gap-2 justify-center">
@@ -266,7 +266,7 @@ const GestaoEventos: React.FC = () => {
               </div>
               
               <Button 
-                className="gradient-primary shadow-glow"
+                className="bg-gradient-to-r from-[#4C1D95] to-[#3B82F6] text-white shadow-lg hover:shadow-xl"
                 onClick={handleCriarEvento}
               >
                 <Plus className="w-4 h-4 mr-2" />
@@ -279,7 +279,7 @@ const GestaoEventos: React.FC = () => {
 
       {/* Lista de Eventos */}
       <div className="flex justify-center">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl w-full">
           {eventosFiltrados.map((evento, index) => {
             const confirmacoes = evento.presencas.filter(p => p.confirmou).length;
             const totalJogadores = evento.presencas.length;

@@ -132,69 +132,69 @@ const GestaoJogos: React.FC = () => {
   };
 
   return (
-    <div className="space-y-3 sm:space-y-6 animate-fade-in">
+    <div className="space-y-3 sm:space-y-6 animate-fade-in px-4">
       {/* Header */}
       <div className="space-y-3 sm:space-y-4">
         <div>
-          <h1 className="text-xl sm:text-3xl font-bold">Gestão de Jogos</h1>
-          <p className="text-sm sm:text-base text-muted-foreground">
+          <h1 className="text-xl sm:text-3xl font-bold text-[#1E293B]">Gestão de Jogos</h1>
+          <p className="text-sm sm:text-base text-[#1E293B]/70">
             Agende jogos e registre resultados
           </p>
         </div>
 
         {/* Estatísticas */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4">
-          <Card className="gradient-card shadow-card">
+          <Card className="bg-white shadow-card">
             <CardContent className="p-3 sm:p-4">
               <div className="flex items-center space-x-2 sm:space-x-3">
-                <div className="p-1.5 sm:p-2 bg-primary/10 rounded-lg">
-                  <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+                <div className="p-1.5 sm:p-2 bg-[#4C1D95]/10 rounded-lg">
+                  <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-[#4C1D95]" />
                 </div>
                 <div>
-                  <p className="text-lg sm:text-2xl font-bold">{estatisticas.total}</p>
-                  <p className="text-xs text-muted-foreground">Total</p>
+                  <p className="text-lg sm:text-2xl font-bold text-[#1E293B]">{estatisticas.total}</p>
+                  <p className="text-xs text-[#1E293B]/70">Total</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="gradient-card shadow-card">
+          <Card className="bg-white shadow-card">
             <CardContent className="p-3 sm:p-4">
               <div className="flex items-center space-x-2 sm:space-x-3">
-                <div className="p-1.5 sm:p-2 bg-info/10 rounded-lg">
-                  <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-info" />
+                <div className="p-1.5 sm:p-2 bg-[#3B82F6]/10 rounded-lg">
+                  <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-[#3B82F6]" />
                 </div>
                 <div>
-                  <p className="text-lg sm:text-2xl font-bold">{estatisticas.agendados}</p>
-                  <p className="text-xs text-muted-foreground">Próximos</p>
+                  <p className="text-lg sm:text-2xl font-bold text-[#1E293B]">{estatisticas.agendados}</p>
+                  <p className="text-xs text-[#1E293B]/70">Próximos</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="gradient-card shadow-card">
+          <Card className="bg-white shadow-card">
             <CardContent className="p-3 sm:p-4">
               <div className="flex items-center space-x-2 sm:space-x-3">
-                <div className="p-1.5 sm:p-2 bg-success/10 rounded-lg">
-                  <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-success" />
+                <div className="p-1.5 sm:p-2 bg-[#22C55E]/10 rounded-lg">
+                  <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-[#22C55E]" />
                 </div>
                 <div>
-                  <p className="text-lg sm:text-2xl font-bold">{estatisticas.finalizados}</p>
-                  <p className="text-xs text-muted-foreground">Finalizados</p>
+                  <p className="text-lg sm:text-2xl font-bold text-[#1E293B]">{estatisticas.finalizados}</p>
+                  <p className="text-xs text-[#1E293B]/70">Finalizados</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="gradient-card shadow-card">
+          <Card className="bg-white shadow-card">
             <CardContent className="p-3 sm:p-4">
               <div className="flex items-center space-x-2 sm:space-x-3">
-                <div className="p-1.5 sm:p-2 bg-warning/10 rounded-lg">
-                  <Trophy className="w-4 h-4 sm:w-5 sm:h-5 text-warning" />
+                <div className="p-1.5 sm:p-2 bg-[#F59E0B]/10 rounded-lg">
+                  <Trophy className="w-4 h-4 sm:w-5 sm:h-5 text-[#F59E0B]" />
                 </div>
                 <div>
-                  <p className="text-lg sm:text-2xl font-bold">{estatisticas.vitorias}</p>
-                  <p className="text-xs text-muted-foreground">Vitórias</p>
+                  <p className="text-lg sm:text-2xl font-bold text-[#1E293B]">{estatisticas.vitorias}</p>
+                  <p className="text-xs text-[#1E293B]/70">Vitórias</p>
                 </div>
               </div>
             </CardContent>
@@ -204,7 +204,7 @@ const GestaoJogos: React.FC = () => {
 
       {/* Controles */}
       <div className="flex justify-center">
-        <Card className="shadow-card">
+        <Card className="bg-white shadow-card">
           <CardContent className="p-3 sm:p-6">
             <div className="flex flex-col gap-4 items-center">
               <div className="flex flex-wrap gap-2 justify-center">
@@ -222,7 +222,7 @@ const GestaoJogos: React.FC = () => {
               </div>
               
               <Button 
-                className="gradient-primary shadow-glow w-full sm:w-auto"
+                className="bg-gradient-to-r from-[#4C1D95] to-[#3B82F6] text-white shadow-lg hover:shadow-xl w-full sm:w-auto"
                 onClick={handleAgendarJogo}
               >
                 <Plus className="w-4 h-4 mr-2" />
@@ -235,7 +235,7 @@ const GestaoJogos: React.FC = () => {
 
       {/* Lista de Jogos */}
       <div className="flex justify-center">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl w-full">
           {jogosFiltrados.map((jogo, index) => (
             <Card key={jogo.id} className="bg-white/95 backdrop-blur-sm border-0 shadow-card md:hover:shadow-xl transition-all duration-300 animate-scale-in overflow-hidden" style={{ animationDelay: `${index * 50}ms` }}>
               <CardContent className="p-0">
