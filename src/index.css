@@ -175,27 +175,27 @@ Cores em HSL inspiradas no Pinterest com foco em verde futebol
 
 @layer base {
   :root {
-    /* Davyflow Theme - Roxo atualizado */
-    --background: 222 50% 98%; /* #F8FAFC */
+    /* Nova Paleta de Cores - DVFoot */
+    --background: 222 50% 98%; /* #F8FAFC - Branco Suave */
     --background-secondary: 222 50% 98%;
-    --foreground: 222 21% 15%; /* #1E293B */
+    --foreground: 222 21% 15%; /* #1E293B - Cinza Carvão Escuro */
 
-    --card: 222 50% 98%;
+    --card: 222 50% 98%; /* #F8FAFC - Branco Suave */
     --card-secondary: 222 50% 98%;
-    --card-foreground: 222 21% 15%;
+    --card-foreground: 222 21% 15%; /* #1E293B - Cinza Carvão Escuro */
 
-    --popover: 222 50% 98%;
-    --popover-foreground: 222 21% 15%;
+    --popover: 222 50% 98%; /* #F8FAFC - Branco Suave */
+    --popover-foreground: 222 21% 15%; /* #1E293B - Cinza Carvão Escuro */
 
-    /* Acento principal: Roxo (violet-900) */
-    --primary: 265 81% 35%; /* #4C1D95 */
+    /* Acento principal: Roxo Profundo */
+    --primary: 265 81% 35%; /* #4C1D95 - Roxo Profundo */
     --primary-foreground: 0 0% 100%;
     --primary-glow: 265 81% 45%;
     --primary-dark: 265 81% 25%;
     --primary-light: 265 81% 55%;
 
-    /* Acento secundário: Azul */
-    --secondary: 217 96% 56%; /* #3B82F6 */
+    /* Acento secundário: Azul Vibrante */
+    --secondary: 217 96% 56%; /* #3B82F6 - Azul Vibrante */
     --secondary-foreground: 0 0% 100%;
 
     --muted: 222 50% 90%;
@@ -204,41 +204,41 @@ Cores em HSL inspiradas no Pinterest com foco em verde futebol
     --accent: 222 50% 90%;
     --accent-foreground: 222 21% 30%;
 
-    /* Feedback */
-    --success: 142 76% 45%; /* #22C55E */
+    /* Feedback - Nova Paleta */
+    --success: 142 76% 45%; /* #22C55E - Verde */
     --success-foreground: 0 0% 100%;
-    --destructive: 0 84% 60%; /* #EF4444 */
+    --destructive: 0 84% 60%; /* #EF4444 - Vermelho */
     --destructive-foreground: 0 0% 100%;
 
     --warning: 40 90% 60%;
     --warning-foreground: 0 0% 10%;
-    --info: 217 96% 56%;
+    --info: 217 96% 56%; /* #3B82F6 - Azul Vibrante */
     --info-foreground: 0 0% 100%;
 
     --border: 222 14% 90%;
     --input: 222 14% 90%;
-    --ring: 265 81% 35%;
+    --ring: 265 81% 35%; /* #4C1D95 - Roxo Profundo */
 
-    /* Gradientes principais */
-    --gradient-primary: linear-gradient(135deg, hsl(265 81% 35%), hsl(217 96% 56%));
-    --gradient-secondary: linear-gradient(135deg, hsl(217 96% 56%), hsl(265 81% 35%));
-    --gradient-success: linear-gradient(135deg, hsl(142 76% 45%), hsl(142 76% 55%));
-    --gradient-warning: linear-gradient(135deg, hsl(40 90% 60%), hsl(35 85% 65%));
-    --gradient-dark: linear-gradient(135deg, hsl(222 21% 15%), hsl(222 21% 20%));
-    --gradient-card: linear-gradient(145deg, hsl(222 50% 98%) 0%, hsl(222 50% 95%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(265 81% 35%), hsl(217 96% 56%));
+    /* Gradientes principais - Nova Paleta */
+    --gradient-primary: linear-gradient(135deg, #4C1D95, #3B82F6);
+    --gradient-secondary: linear-gradient(135deg, #3B82F6, #4C1D95);
+    --gradient-success: linear-gradient(135deg, #22C55E, #16A34A);
+    --gradient-warning: linear-gradient(135deg, #F59E0B, #D97706);
+    --gradient-dark: linear-gradient(135deg, #1E293B, #334155);
+    --gradient-card: linear-gradient(145deg, #F8FAFC 0%, #F1F5F9 100%);
+    --gradient-hero: linear-gradient(135deg, #4C1D95, #3B82F6);
     --gradient-glass: linear-gradient(145deg, rgba(76,29,149,0.04) 0%, rgba(59,130,246,0.01) 100%);
 
-    /* Sombras minimalistas */
-    --shadow-sm: 0 1px 2px 0 hsl(222 21% 15% / 0.05);
-    --shadow-card: 0 2px 8px -1px hsl(222 21% 15% / 0.2);
-    --shadow-float: 0 4px 12px -2px hsl(222 21% 15% / 0.15);
-    --shadow-glow: 0 0 0 1px hsl(265 81% 35% / 0.3);
-    --shadow-glow-secondary: 0 0 0 1px hsl(217 96% 56%);
-    --shadow-neon: 0 0 8px hsl(265 81% 35% / 0.4);
+    /* Sombras minimalistas - Nova Paleta */
+    --shadow-sm: 0 1px 2px 0 rgba(30,41,59,0.05);
+    --shadow-card: 0 2px 8px -1px rgba(30,41,59,0.2);
+    --shadow-float: 0 4px 12px -2px rgba(30,41,59,0.15);
+    --shadow-glow: 0 0 0 1px rgba(76,29,149,0.3);
+    --shadow-glow-secondary: 0 0 0 1px rgba(59,130,246,0.3);
+    --shadow-neon: 0 0 8px rgba(76,29,149,0.4);
     --shadow-glass: 0 2px 8px rgba(76,29,149,0.1);
-    --shadow-glow-success: 0 0 0 1px hsl(142 76% 45% / 0.3);
-    --shadow-glow-error: 0 0 0 1px hsl(0 84% 60% / 0.3);
+    --shadow-glow-success: 0 0 0 1px rgba(34,197,94,0.3);
+    --shadow-glow-error: 0 0 0 1px rgba(239,68,68,0.3);
 
     --radius: 1rem;
   }

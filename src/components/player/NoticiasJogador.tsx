@@ -6,15 +6,15 @@ import { Input } from '../ui/input';
 import { Badge } from '../ui/badge';
 import { Avatar, AvatarImage, AvatarFallback } from '../ui/avatar';
 import {
+  Chats,
   Calendar,
   Eye,
   ThumbsUp,
   ChatCircle,
   Heart,
-  BookmarkSimple,
   ShareNetwork,
   CaretDown,
-  TrendingUp
+  TrendUp
 } from 'phosphor-react';
 import { noticias } from '../../data/mockData';
 
@@ -87,7 +87,7 @@ const NoticiasJogador: React.FC = () => {
             <CardContent className="p-4">
               <div className="flex items-center space-x-3">
                 <div className="p-2 bg-primary/10 rounded-lg">
-                  <TrendingUp className="w-5 h-5 text-primary" />
+                  <TrendUp className="w-5 h-5 text-primary" />
                 </div>
                 <div>
                   <p className="text-2xl font-bold">{estatisticas.totalNoticias}</p>
@@ -132,7 +132,7 @@ const NoticiasJogador: React.FC = () => {
         <CardContent className="p-6">
           <div className="flex flex-col sm:flex-row gap-4">
             <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
+              <Chats className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
               <Input
                 placeholder="Buscar na central..."
                 value={searchTerm}
@@ -301,7 +301,7 @@ const NoticiasJogador: React.FC = () => {
           <CardContent className="p-12 text-center">
             <div className="space-y-4">
               <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mx-auto">
-                <Search className="w-8 h-8 text-muted-foreground" />
+                <Chats className="w-8 h-8 text-muted-foreground" />
               </div>
               <div>
                 <h3 className="font-semibold">Nenhuma notícia encontrada</h3>

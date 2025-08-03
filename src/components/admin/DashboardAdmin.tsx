@@ -68,15 +68,15 @@ const DashboardAdmin: React.FC = () => {
         {estatisticas.map((stat, index) => {
           const IconComponent = stat.icon;
           return (
-            <Card key={stat.label} className="gradient-card shadow-card animate-scale-in" style={{ animationDelay: `${index * 50}ms` }}>
+            <Card key={stat.label} className="bg-white shadow-card animate-scale-in" style={{ animationDelay: `${index * 50}ms` }}>
               <CardContent className="p-3 sm:p-4">
                 <div className="flex items-center space-x-2 sm:space-x-3">
                   <div className={`p-1.5 sm:p-2 rounded-lg ${getIconColor(stat.color)}`}>
                     <IconComponent className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
                   <div>
-                    <p className="text-lg sm:text-2xl font-bold">{stat.valor}</p>
-                    <p className="text-xs text-muted-foreground">{stat.label}</p>
+                    <p className="text-lg sm:text-2xl font-bold text-[#1E293B]">{stat.valor}</p>
+                    <p className="text-xs text-[#1E293B]/70">{stat.label}</p>
                   </div>
                 </div>
               </CardContent>
@@ -95,10 +95,10 @@ const DashboardAdmin: React.FC = () => {
             onClick={handleCriarEvento}
           >
             <div className="flex flex-col items-center justify-center space-y-1">
-              <div className="p-1.5 bg-purple-50 rounded-lg group-hover:bg-purple-100 transition-colors">
-                <Plus className="w-4 h-4 text-purple-600" />
+              <div className="p-1.5 bg-[#4C1D95]/10 rounded-lg group-hover:bg-[#4C1D95]/20 transition-colors">
+                <Plus className="w-4 h-4 text-[#4C1D95]" />
               </div>
-              <span className="font-medium text-gray-900 text-xs text-center">Criar Evento</span>
+              <span className="font-medium text-[#1E293B] text-xs text-center">Criar Evento</span>
             </div>
           </div>
           
@@ -108,10 +108,10 @@ const DashboardAdmin: React.FC = () => {
             onClick={handleAgendarJogo}
           >
             <div className="flex flex-col items-center justify-center space-y-1">
-              <div className="p-1.5 bg-red-50 rounded-lg group-hover:bg-red-100 transition-colors">
-                <Calendar className="w-4 h-4 text-red-600" />
+              <div className="p-1.5 bg-[#EF4444]/10 rounded-lg group-hover:bg-[#EF4444]/20 transition-colors">
+                <Calendar className="w-4 h-4 text-[#EF4444]" />
               </div>
-              <span className="font-medium text-gray-900 text-xs text-center">Agendar Jogo</span>
+              <span className="font-medium text-[#1E293B] text-xs text-center">Agendar Jogo</span>
             </div>
           </div>
           
@@ -121,10 +121,10 @@ const DashboardAdmin: React.FC = () => {
             onClick={handleAdicionarJogador}
           >
             <div className="flex flex-col items-center justify-center space-y-1">
-              <div className="p-1.5 bg-green-50 rounded-lg group-hover:bg-green-100 transition-colors">
-                <UserPlus className="w-4 h-4 text-green-600" />
+              <div className="p-1.5 bg-[#22C55E]/10 rounded-lg group-hover:bg-[#22C55E]/20 transition-colors">
+                <UserPlus className="w-4 h-4 text-[#22C55E]" />
               </div>
-              <span className="font-medium text-gray-900 text-xs text-center">Adicionar Jogador</span>
+              <span className="font-medium text-[#1E293B] text-xs text-center">Adicionar Jogador</span>
             </div>
           </div>
           
@@ -134,10 +134,10 @@ const DashboardAdmin: React.FC = () => {
             onClick={handleEnviarNotificacao}
           >
             <div className="flex flex-col items-center justify-center space-y-1">
-              <div className="p-1.5 bg-orange-50 rounded-lg group-hover:bg-orange-100 transition-colors">
-                <Bell className="w-4 h-4 text-orange-600" />
+              <div className="p-1.5 bg-[#3B82F6]/10 rounded-lg group-hover:bg-[#3B82F6]/20 transition-colors">
+                <Bell className="w-4 h-4 text-[#3B82F6]" />
               </div>
-              <span className="font-medium text-gray-900 text-xs text-center">Enviar Notificação</span>
+              <span className="font-medium text-[#1E293B] text-xs text-center">Enviar Notificação</span>
             </div>
           </div>
         </div>
@@ -156,7 +156,7 @@ const DashboardAdmin: React.FC = () => {
             Ver todos
           </Button>
         </div>
-        <div className="bg-[#F8FAFC] rounded-xl shadow-card p-5 flex flex-col items-center gap-1 animate-scale-in" style={{ animationDelay: '400ms' }}>
+        <div className="bg-white rounded-xl shadow-card p-5 flex flex-col items-center gap-1 animate-scale-in" style={{ animationDelay: '400ms' }}>
           <Trophy className="w-8 h-8 text-[#4C1D95] mb-1" />
           <span className="font-bold text-[#1E293B]">vs FC Rivais</span>
           <span className="text-xs text-[#1E293B] font-normal">24/07/2024 • 15:00</span>
@@ -181,9 +181,9 @@ const DashboardAdmin: React.FC = () => {
             Ver todos
           </Button>
         </div>
-        <div className="bg-[#F8FAFC] rounded-xl shadow-card p-5 flex flex-col items-center gap-1 animate-scale-in" style={{ animationDelay: '450ms' }}>
-                          <Calendar className="w-8 h-8 text-[#4C1D95] mb-1" />
-          <Badge className="bg-[#10B981] text-white mt-2 rounded-full px-3 py-0.5">Confirmado</Badge>
+        <div className="bg-white rounded-xl shadow-card p-5 flex flex-col items-center gap-1 animate-scale-in" style={{ animationDelay: '450ms' }}>
+          <Calendar className="w-8 h-8 text-[#4C1D95] mb-1" />
+          <Badge className="bg-[#22C55E] text-white mt-2 rounded-full px-3 py-0.5">Confirmado</Badge>
           <span className="font-bold text-[#1E293B]">Treino Técnico</span>
           <span className="text-xs text-[#1E293B] font-normal">25/07/2024 • 19:00</span>
           <span className="text-xs text-[#1E293B] font-normal">Campo Municipal</span>

@@ -6,7 +6,6 @@ import {
   Calendar, 
   SoccerBall, 
   Chats, 
-  SignOut,
   Bell,
   MagnifyingGlass,
   Trophy
@@ -19,7 +18,7 @@ import { Label } from '../ui/label';
 import { Input } from '../ui/input';
 
 const Navigation: React.FC = () => {
-  const { usuario, logout } = useAuth();
+  const { usuario } = useAuth();
   const { navigateTo, isActiveRoute } = useNavigation();
   const [isNotificacoesOpen, setIsNotificacoesOpen] = useState(false);
   const [isConfiguracoesOpen, setIsConfiguracoesOpen] = useState(false);
@@ -42,59 +41,62 @@ const Navigation: React.FC = () => {
 
   const menuItems = usuario?.tipo === 'administrador' ? menuAdministrador : menuJogador;
 
-  const handleLogout = () => {
-    logout();
-    navigateTo('/login');
-  };
-
   return (
     <>
       {/* Header Mobile-First - Apenas para mobile */}
       <header className="sticky top-0 z-40 glass-morphism animate-slide-in-bottom lg:hidden">
-        <div className="flex h-16 sm:h-20 items-center justify-between px-3 sm:px-6">
-          <div className="flex items-center space-x-2 sm:space-x-4">
+        <div className="flex h-12 sm:h-14 items-center justify-between px-2 sm:px-4">
+          <div className="flex items-center space-x-2 sm:space-x-3">
             <div className="relative">
-              <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl gradient-primary flex items-center justify-center shadow-card">
-                <Trophy className="w-4 h-4 sm:w-7 sm:h-7 text-white" />
+              <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-gradient-to-r from-[#4C1D95] to-[#3B82F6] flex items-center justify-center shadow-card">
+                <Trophy className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
               </div>
             </div>
             <div className="hidden xs:block">
-              <h1 className="text-sm sm:text-2xl font-bold bg-gradient-to-r from-primary via-primary-glow to-primary-light bg-clip-text text-transparent">
+              <h1 className="text-xs sm:text-lg font-bold bg-gradient-to-r from-[#4C1D95] via-[#3B82F6] to-[#4C1D95] bg-clip-text text-transparent leading-tight">
                 Jogo em Foco
               </h1>
-              <p className="text-xs sm:text-sm text-muted-foreground font-medium">
+              <p className="text-[10px] sm:text-xs text-[#1E293B] font-medium leading-tight">
                 {usuario?.tipo === 'administrador' ? '⚡ Admin' : '🎯 Pro'}
               </p>
             </div>
           </div>
           
-          <div className="flex items-center space-x-2 sm:space-x-4">
-            <Button variant="ghost" size="sm" className="hidden sm:flex p-3">
+          <div className="flex items-center space-x-1 sm:space-x-2">
+            <Button variant="ghost" size="sm" className="hidden sm:flex p-2">
               <MagnifyingGlass className="w-4 h-4 sm:w-5 sm:h-5" />
             </Button>
             <div className="relative">
               <button 
                 onClick={() => setIsNotificacoesOpen(true)}
-                className="p-1 hover:bg-gray-100 rounded-full transition-colors"
+                className="relative p-2 hover:bg-gray-100/80 rounded-full transition-all duration-200 hover:scale-105 active:scale-95"
               >
-                <Bell className="w-7 h-7 text-black" />
-                <span className="absolute w-4 h-4 flex items-center justify-center rounded-full bg-[#EF4444] text-white text-xs font-bold border-2 border-[#F8FAFC]" style={{top: 0, right: 0, transform: 'translate(20%, -20%)'}}>3</span>
+                <div className="relative">
+                  <Bell className="w-6 h-6 text-[#1E293B]" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#4C1D95]/20 to-[#3B82F6]/20 rounded-full blur-sm"></div>
+                </div>
+                <span className="absolute -top-1 -right-1 w-5 h-5 flex items-center justify-center rounded-full bg-gradient-to-r from-[#EF4444] to-[#DC2626] text-white text-[10px] font-bold shadow-lg border-2 border-white animate-pulse">
+                  3
+                </span>
               </button>
             </div>
-            <div className="flex items-center space-x-2 sm:space-x-3 p-1 sm:p-2 pl-2 sm:pl-4">
+            <div className="flex items-center space-x-2 sm:space-x-3 p-1 sm:p-2">
               <div className="hidden sm:block text-right">
-                <p className="text-xs sm:text-sm font-semibold leading-none">{usuario?.nome}</p>
-                <p className="text-xs text-primary font-medium capitalize">{usuario?.tipo}</p>
+                <p className="text-xs font-semibold leading-none text-[#1E293B]">{usuario?.nome}</p>
+                <p className="text-[10px] text-[#4C1D95] font-medium capitalize">{usuario?.tipo}</p>
               </div>
               {usuario?.tipo === 'administrador' ? (
                 <Dialog open={isConfiguracoesOpen} onOpenChange={setIsConfiguracoesOpen}>
                   <DialogTrigger asChild>
-                    <img
-                      src={usuario?.foto || 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face'}
-                      alt={usuario?.nome}
-                      className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl object-cover border-2 cursor-pointer"
-                      style={{ borderColor: '#1E293B' }}
-                    />
+                    <div className="relative group cursor-pointer">
+                      <div className="absolute inset-0 bg-gradient-to-r from-[#4C1D95]/20 to-[#3B82F6]/20 rounded-full blur-sm group-hover:blur-md transition-all duration-200"></div>
+                      <img
+                        src={usuario?.foto || 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face'}
+                        alt={usuario?.nome}
+                        className="relative w-7 h-7 sm:w-8 sm:h-8 rounded-full object-cover border-2 border-white shadow-lg group-hover:shadow-xl transition-all duration-200 group-hover:scale-105"
+                      />
+                      <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-[#22C55E] border-2 border-white rounded-full shadow-sm"></div>
+                    </div>
                   </DialogTrigger>
                   <DialogContent className="w-full h-full max-w-none max-h-none rounded-none bg-gradient-to-br from-white to-gray-50 border-0 shadow-none">
                     <div className="flex flex-col h-full">
@@ -185,12 +187,15 @@ const Navigation: React.FC = () => {
                   </DialogContent>
                 </Dialog>
               ) : (
-                <img
-                  src={usuario?.foto || 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face'}
-                  alt={usuario?.nome}
-                  className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl object-cover border-2"
-                  style={{ borderColor: '#1E293B' }}
-                />
+                <div className="relative group">
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#3B82F6]/20 to-[#4C1D95]/20 rounded-full blur-sm group-hover:blur-md transition-all duration-200"></div>
+                  <img
+                    src={usuario?.foto || 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face'}
+                    alt={usuario?.nome}
+                    className="relative w-7 h-7 sm:w-8 sm:h-8 rounded-full object-cover border-2 border-white shadow-lg group-hover:shadow-xl transition-all duration-200 group-hover:scale-105"
+                  />
+                  <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-[#3B82F6] border-2 border-white rounded-full shadow-sm"></div>
+                </div>
               )}
             </div>
           </div>
