@@ -54,44 +54,56 @@ const DashboardAdmin: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] flex flex-col justify-between animate-fade-in">
+    <div className="space-y-3 sm:space-y-6 animate-fade-in px-4">
       {/* Header */}
-      <header className="w-full bg-[#F8FAFC] px-4 pt-4 pb-2 flex items-center justify-between">
-        <div className="flex flex-col items-start">
-          <h1 className="text-xl sm:text-3xl font-bold text-[#1E293B]">Gestão do Time</h1>
-          <span className="text-sm sm:text-base text-[#1E293B]/70 font-medium">Dashboard administrativo completo</span>
+      <div className="space-y-3 sm:space-y-4">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-[#1E293B] bg-gradient-to-r from-[#4C1D95] to-[#3B82F6] bg-clip-text text-transparent">
+            Gestão do Time
+          </h1>
+          <p className="text-sm text-[#1E293B]/70 mt-1">Dashboard administrativo completo</p>
         </div>
-      </header>
 
-      {/* Cards de Resumo */}
-      <section className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 px-4 mt-4">
-        {estatisticas.map((stat, index) => {
-          const IconComponent = stat.icon;
-          return (
-            <Card key={stat.label} className="bg-white shadow-card animate-scale-in" style={{ animationDelay: `${index * 50}ms` }}>
-              <CardContent className="p-3 sm:p-4">
-                <div className="flex items-center space-x-2 sm:space-x-3">
-                  <div className={`p-1.5 sm:p-2 rounded-lg ${getIconColor(stat.color)}`}>
-                    <IconComponent className="w-4 h-4 sm:w-5 sm:h-5" />
+        {/* Cards de Resumo */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4">
+          {estatisticas.map((stat, index) => {
+            const IconComponent = stat.icon;
+            return (
+              <Card 
+                key={stat.label} 
+                className="bg-gradient-to-br from-white to-gray-50/50 shadow-lg hover:shadow-xl border border-gray-100/50 hover:border-gray-200 transition-all duration-300 hover:scale-105 group"
+              >
+                <CardContent className="p-3 sm:p-4 relative overflow-hidden">
+                  {/* Efeito de brilho no hover */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+                  
+                  <div className="flex items-center space-x-2 sm:space-x-3 relative z-10">
+                    <div className={`p-1.5 sm:p-2 rounded-lg shadow-sm group-hover:shadow-md transition-all duration-300 ${getIconColor(stat.color)}`}>
+                      <IconComponent className="w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform duration-300" />
+                    </div>
+                    <div>
+                      <p className="text-lg sm:text-2xl font-bold text-[#1E293B] group-hover:text-[#4C1D95] transition-colors duration-300">{stat.valor}</p>
+                      <p className="text-xs text-[#1E293B]/70 group-hover:text-[#1E293B] transition-colors duration-300">{stat.label}</p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-lg sm:text-2xl font-bold text-[#1E293B]">{stat.valor}</p>
-                    <p className="text-xs text-[#1E293B]/70">{stat.label}</p>
+                  
+                  {/* Decoração de fundo */}
+                  <div className="absolute top-0 right-0 w-16 h-16 opacity-5 group-hover:opacity-10 transition-opacity duration-300">
+                    <IconComponent className="w-full h-full" />
                   </div>
-                </div>
-              </CardContent>
-            </Card>
-          );
-        })}
-      </section>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
+      </div>
 
       {/* Ações Rápidas */}
       <section className="px-4 mt-6">
         <h2 className="text-lg font-semibold text-[#1E293B] mb-3">Ações Rápidas</h2>
         <div className="grid grid-cols-2 gap-2">
           <div 
-            className="bg-white rounded-xl shadow-card border border-gray-100 p-2 md:hover:shadow-md transition-all duration-300 cursor-pointer group animate-scale-in"
-            style={{ animationDelay: '200ms' }}
+            className="bg-white rounded-xl shadow-card border border-gray-100 p-2 md:hover:shadow-md transition-all duration-300 cursor-pointer group"
             onClick={handleCriarEvento}
           >
             <div className="flex flex-col items-center justify-center space-y-1">
@@ -103,8 +115,7 @@ const DashboardAdmin: React.FC = () => {
           </div>
           
           <div 
-            className="bg-white rounded-xl shadow-card border border-gray-100 p-2 md:hover:shadow-md transition-all duration-300 cursor-pointer group animate-scale-in"
-            style={{ animationDelay: '250ms' }}
+            className="bg-white rounded-xl shadow-card border border-gray-100 p-2 md:hover:shadow-md transition-all duration-300 cursor-pointer group"
             onClick={handleAgendarJogo}
           >
             <div className="flex flex-col items-center justify-center space-y-1">
@@ -116,8 +127,7 @@ const DashboardAdmin: React.FC = () => {
           </div>
           
           <div 
-            className="bg-white rounded-xl shadow-card border border-gray-100 p-2 md:hover:shadow-md transition-all duration-300 cursor-pointer group animate-scale-in"
-            style={{ animationDelay: '300ms' }}
+            className="bg-white rounded-xl shadow-card border border-gray-100 p-2 md:hover:shadow-md transition-all duration-300 cursor-pointer group"
             onClick={handleAdicionarJogador}
           >
             <div className="flex flex-col items-center justify-center space-y-1">
@@ -129,8 +139,7 @@ const DashboardAdmin: React.FC = () => {
           </div>
           
           <div 
-            className="bg-white rounded-xl shadow-card border border-gray-100 p-2 md:hover:shadow-md transition-all duration-300 cursor-pointer group animate-scale-in"
-            style={{ animationDelay: '350ms' }}
+            className="bg-white rounded-xl shadow-card border border-gray-100 p-2 md:hover:shadow-md transition-all duration-300 cursor-pointer group"
             onClick={handleEnviarNotificacao}
           >
             <div className="flex flex-col items-center justify-center space-y-1">
@@ -156,7 +165,7 @@ const DashboardAdmin: React.FC = () => {
             Ver todos
           </Button>
         </div>
-        <div className="bg-white rounded-xl shadow-card p-5 flex flex-col items-center gap-1 animate-scale-in" style={{ animationDelay: '400ms' }}>
+        <div className="bg-white rounded-xl shadow-card p-5 flex flex-col items-center gap-1">
           <Trophy className="w-8 h-8 text-[#4C1D95] mb-1" />
           <span className="font-bold text-[#1E293B]">vs FC Rivais</span>
           <span className="text-xs text-[#1E293B] font-normal">24/07/2024 • 15:00</span>
@@ -181,7 +190,7 @@ const DashboardAdmin: React.FC = () => {
             Ver todos
           </Button>
         </div>
-        <div className="bg-white rounded-xl shadow-card p-5 flex flex-col items-center gap-1 animate-scale-in" style={{ animationDelay: '450ms' }}>
+        <div className="bg-white rounded-xl shadow-card p-5 flex flex-col items-center gap-1">
           <Calendar className="w-8 h-8 text-[#4C1D95] mb-1" />
           <Badge className="bg-[#22C55E] text-white mt-2 rounded-full px-3 py-0.5">Confirmado</Badge>
           <span className="font-bold text-[#1E293B]">Treino Técnico</span>

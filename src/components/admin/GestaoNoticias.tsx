@@ -56,8 +56,8 @@ const GestaoNoticias: React.FC = () => {
       {/* Header */}
       <div className="space-y-4">
         <div>
-          <h1 className="text-xl sm:text-3xl font-bold text-[#1E293B]">Gestão da Central</h1>
-          <p className="text-sm sm:text-base text-[#1E293B]/70">
+          <h1 className="text-2xl font-bold text-[#1E293B]">Gestão da Central</h1>
+          <p className="text-sm text-[#1E293B]/70">
             Publique e gerencie conteúdo da central do time
           </p>
         </div>

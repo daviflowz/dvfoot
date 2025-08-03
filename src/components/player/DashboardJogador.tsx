@@ -8,10 +8,8 @@ import {
   TrendUp,
   Medal,
   CheckCircle,
-  Users,
   Star,
   Bell,
-  Heart,
   MapPin,
   Clock,
   User

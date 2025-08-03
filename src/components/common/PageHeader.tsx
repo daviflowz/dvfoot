@@ -64,9 +64,9 @@ const PageHeader: React.FC<PageHeaderProps> = ({
       {/* Header Principal */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl sm:text-3xl font-bold text-[#1E293B]">{title}</h1>
+          <h1 className="text-2xl font-bold text-[#1E293B]">{title}</h1>
           {description && (
-            <p className="text-[#1E293B]/70 mt-1">{description}</p>
+            <p className="text-sm text-[#1E293B]/70">{description}</p>
           )}
         </div>
         

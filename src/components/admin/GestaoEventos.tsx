@@ -36,7 +36,7 @@ const GestaoEventos: React.FC = () => {
   });
   
   const tiposEventos = [
-    { value: 'todos', label: 'Todos os Eventos' },
+    { value: 'todos', label: 'Todos' },
     { value: 'social', label: 'Sociais' },
     { value: 'treino', label: 'Treinos' },
     { value: 'reuniao', label: 'Reuniões' }
@@ -179,67 +179,101 @@ const GestaoEventos: React.FC = () => {
     <div className="space-y-3 sm:space-y-6 animate-fade-in px-4">
       {/* Header */}
       <div className="space-y-3 sm:space-y-4">
-        <div>
-          <h1 className="text-xl sm:text-3xl font-bold text-[#1E293B]">Gestão de Eventos</h1>
-          <p className="text-sm sm:text-base text-[#1E293B]/70">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-[#1E293B] bg-gradient-to-r from-[#4C1D95] to-[#3B82F6] bg-clip-text text-transparent">
+            Gestão de Eventos
+          </h1>
+          <p className="text-sm text-[#1E293B]/70 mt-1">
             Crie e gerencie eventos do time
           </p>
         </div>
 
         {/* Estatísticas */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4">
-          <Card className="bg-white shadow-card">
-            <CardContent className="p-3 sm:p-4">
-              <div className="flex items-center space-x-2 sm:space-x-3">
-                <div className="p-1.5 sm:p-2 bg-[#4C1D95]/10 rounded-lg">
-                  <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-[#4C1D95]" />
+          <Card className="bg-gradient-to-br from-white to-gray-50/50 shadow-lg hover:shadow-xl border border-gray-100/50 hover:border-gray-200 transition-all duration-300 hover:scale-105 group">
+            <CardContent className="p-3 sm:p-4 relative overflow-hidden">
+              {/* Efeito de brilho no hover */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+              
+              <div className="flex items-center space-x-2 sm:space-x-3 relative z-10">
+                <div className="p-1.5 sm:p-2 bg-[#4C1D95]/10 rounded-lg shadow-sm group-hover:shadow-md transition-all duration-300">
+                  <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-[#4C1D95] group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 <div>
-                  <p className="text-lg sm:text-2xl font-bold text-[#1E293B]">{estatisticas.total}</p>
-                  <p className="text-xs text-[#1E293B]/70">Total</p>
+                  <p className="text-lg sm:text-2xl font-bold text-[#1E293B] group-hover:text-[#4C1D95] transition-colors duration-300">{estatisticas.total}</p>
+                  <p className="text-xs text-[#1E293B]/70 group-hover:text-[#1E293B] transition-colors duration-300">Total</p>
                 </div>
+              </div>
+              
+              {/* Decoração de fundo */}
+              <div className="absolute top-0 right-0 w-16 h-16 opacity-5 group-hover:opacity-10 transition-opacity duration-300">
+                <Calendar className="w-full h-full" />
               </div>
             </CardContent>
           </Card>
 
-          <Card className="bg-white shadow-card">
-            <CardContent className="p-3 sm:p-4">
-              <div className="flex items-center space-x-2 sm:space-x-3">
-                <div className="p-1.5 sm:p-2 bg-[#22C55E]/10 rounded-lg">
-                  <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-[#22C55E]" />
+          <Card className="bg-gradient-to-br from-white to-gray-50/50 shadow-lg hover:shadow-xl border border-gray-100/50 hover:border-gray-200 transition-all duration-300 hover:scale-105 group">
+            <CardContent className="p-3 sm:p-4 relative overflow-hidden">
+              {/* Efeito de brilho no hover */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+              
+              <div className="flex items-center space-x-2 sm:space-x-3 relative z-10">
+                <div className="p-1.5 sm:p-2 bg-[#22C55E]/10 rounded-lg shadow-sm group-hover:shadow-md transition-all duration-300">
+                  <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-[#22C55E] group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 <div>
-                  <p className="text-lg sm:text-2xl font-bold text-[#1E293B]">{estatisticas.proximosEventos}</p>
-                  <p className="text-xs text-[#1E293B]/70">Próximos</p>
+                  <p className="text-lg sm:text-2xl font-bold text-[#1E293B] group-hover:text-[#22C55E] transition-colors duration-300">{estatisticas.proximosEventos}</p>
+                  <p className="text-xs text-[#1E293B]/70 group-hover:text-[#1E293B] transition-colors duration-300">Próximos</p>
                 </div>
+              </div>
+              
+              {/* Decoração de fundo */}
+              <div className="absolute top-0 right-0 w-16 h-16 opacity-5 group-hover:opacity-10 transition-opacity duration-300">
+                <CheckCircle className="w-full h-full" />
               </div>
             </CardContent>
           </Card>
 
-          <Card className="bg-white shadow-card">
-            <CardContent className="p-3 sm:p-4">
-              <div className="flex items-center space-x-2 sm:space-x-3">
-                <div className="p-1.5 sm:p-2 bg-[#3B82F6]/10 rounded-lg">
-                  <Users className="w-4 h-4 sm:w-5 sm:h-5 text-[#3B82F6]" />
+          <Card className="bg-gradient-to-br from-white to-gray-50/50 shadow-lg hover:shadow-xl border border-gray-100/50 hover:border-gray-200 transition-all duration-300 hover:scale-105 group">
+            <CardContent className="p-3 sm:p-4 relative overflow-hidden">
+              {/* Efeito de brilho no hover */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+              
+              <div className="flex items-center space-x-2 sm:space-x-3 relative z-10">
+                <div className="p-1.5 sm:p-2 bg-[#3B82F6]/10 rounded-lg shadow-sm group-hover:shadow-md transition-all duration-300">
+                  <Users className="w-4 h-4 sm:w-5 sm:h-5 text-[#3B82F6] group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 <div>
-                  <p className="text-lg sm:text-2xl font-bold text-[#1E293B]">{estatisticas.mediaConfirmacoes}%</p>
-                  <p className="text-xs text-[#1E293B]/70">Média Confirmações</p>
+                  <p className="text-lg sm:text-2xl font-bold text-[#1E293B] group-hover:text-[#3B82F6] transition-colors duration-300">{estatisticas.mediaConfirmacoes}%</p>
+                  <p className="text-xs text-[#1E293B]/70 group-hover:text-[#1E293B] transition-colors duration-300">Média Confirmações</p>
                 </div>
+              </div>
+              
+              {/* Decoração de fundo */}
+              <div className="absolute top-0 right-0 w-16 h-16 opacity-5 group-hover:opacity-10 transition-opacity duration-300">
+                <Users className="w-full h-full" />
               </div>
             </CardContent>
           </Card>
 
-          <Card className="bg-white shadow-card">
-            <CardContent className="p-3 sm:p-4">
-              <div className="flex items-center space-x-2 sm:space-x-3">
-                <div className="p-1.5 sm:p-2 bg-[#F59E0B]/10 rounded-lg">
-                  <Archive className="w-4 h-4 sm:w-5 sm:h-5 text-[#F59E0B]" />
+          <Card className="bg-gradient-to-br from-white to-gray-50/50 shadow-lg hover:shadow-xl border border-gray-100/50 hover:border-gray-200 transition-all duration-300 hover:scale-105 group">
+            <CardContent className="p-3 sm:p-4 relative overflow-hidden">
+              {/* Efeito de brilho no hover */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+              
+              <div className="flex items-center space-x-2 sm:space-x-3 relative z-10">
+                <div className="p-1.5 sm:p-2 bg-[#F59E0B]/10 rounded-lg shadow-sm group-hover:shadow-md transition-all duration-300">
+                  <Archive className="w-4 h-4 sm:w-5 sm:h-5 text-[#F59E0B] group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 <div>
-                  <p className="text-lg sm:text-2xl font-bold text-[#1E293B]">{estatisticas.eventosPassados}</p>
-                  <p className="text-xs text-[#1E293B]/70">Realizados</p>
+                  <p className="text-lg sm:text-2xl font-bold text-[#1E293B] group-hover:text-[#F59E0B] transition-colors duration-300">{estatisticas.eventosPassados}</p>
+                  <p className="text-xs text-[#1E293B]/70 group-hover:text-[#1E293B] transition-colors duration-300">Realizados</p>
                 </div>
+              </div>
+              
+              {/* Decoração de fundo */}
+              <div className="absolute top-0 right-0 w-16 h-16 opacity-5 group-hover:opacity-10 transition-opacity duration-300">
+                <Archive className="w-full h-full" />
               </div>
             </CardContent>
           </Card>
@@ -448,7 +482,7 @@ const GestaoEventos: React.FC = () => {
             </DialogHeader>
             
             <div className="flex-1 overflow-y-auto px-2 sm:px-3 md:px-4 lg:px-6 py-2 sm:py-3 md:py-4 pb-4">
-              <div className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6">
+              <div className="space-y-2 sm:space-y-3 md:space-y-4">
                 <div className="space-y-2 sm:space-y-3 md:space-y-4">
                   <div className="space-y-1 sm:space-y-2">
                     <Label htmlFor="nome" className="text-xs sm:text-sm font-semibold text-gray-700">
