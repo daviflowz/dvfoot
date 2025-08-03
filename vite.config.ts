@@ -12,14 +12,13 @@ export default defineConfig(() => ({
   },
   build: {
     target: 'esnext',
-    minify: 'terser',
-    cssMinify: false,
+    minify: 'esbuild', // Mais rápido que terser
+    cssMinify: true,
     rollupOptions: {
       output: {
         manualChunks: {
-          // Separar React e React DOM
+          // Chunks simplificados
           'react-vendor': ['react', 'react-dom'],
-          // Separar UI libraries (apenas os realmente instalados)
           'ui-vendor': [
             '@radix-ui/react-accordion',
             '@radix-ui/react-alert-dialog',
@@ -43,24 +42,14 @@ export default defineConfig(() => ({
             '@radix-ui/react-toggle',
             '@radix-ui/react-toggle-group',
           ],
-          // Separar utilitários
           'utils-vendor': [
             'class-variance-authority',
             'clsx',
             'date-fns',
-          ],
-          // Separar charts e forms
-          'features-vendor': [
-            'recharts',
-            'react-hook-form',
-            '@hookform/resolvers',
-            '@tanstack/react-query',
+            'tailwind-merge',
           ],
         },
-        chunkFileNames: (chunkInfo) => {
-          const facadeModuleId = chunkInfo.facadeModuleId ? chunkInfo.facadeModuleId.split('/').pop() : 'chunk';
-          return `js/${facadeModuleId}-[hash].js`;
-        },
+        chunkFileNames: 'js/[name]-[hash].js',
         entryFileNames: 'js/[name]-[hash].js',
         assetFileNames: (assetInfo) => {
           const info = assetInfo.name.split('.');
@@ -75,14 +64,8 @@ export default defineConfig(() => ({
         },
       },
     },
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true,
-      },
-    },
     cssCodeSplit: true,
-    reportCompressedSize: true,
+    reportCompressedSize: false, // Desabilitar para acelerar
     chunkSizeWarningLimit: 1000,
   },
   server: {
@@ -95,6 +78,7 @@ export default defineConfig(() => ({
       'react-dom',
       'class-variance-authority',
       'clsx',
+      'phosphor-react',
     ],
   },
 }));

@@ -58,8 +58,8 @@ const DashboardAdmin: React.FC = () => {
       {/* Header */}
       <header className="w-full bg-[#F8FAFC] px-4 pt-4 pb-2 flex items-center justify-between">
         <div className="flex flex-col items-start">
-          <h1 className="text-2xl font-bold text-[#1E293B]">Gestão do Time</h1>
-          <span className="text-sm text-[#1E293B]/70 font-medium">Dashboard administrativo completo</span>
+          <h1 className="text-xl sm:text-3xl font-bold text-[#1E293B]">Gestão do Time</h1>
+          <span className="text-sm sm:text-base text-[#1E293B]/70 font-medium">Dashboard administrativo completo</span>
         </div>
       </header>
 
