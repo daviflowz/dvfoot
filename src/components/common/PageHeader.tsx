@@ -64,16 +64,16 @@ const PageHeader: React.FC<PageHeaderProps> = ({
       {/* Header Principal */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">{title}</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold text-[#1E293B]">{title}</h1>
           {description && (
-            <p className="text-gray-600 mt-1">{description}</p>
+            <p className="text-[#1E293B]/70 mt-1">{description}</p>
           )}
         </div>
         
         {actionButton && (
           <Button 
             onClick={actionButton.onClick}
-            className="gradient-primary shadow-lg hover:shadow-xl transition-all duration-300"
+            className="bg-gradient-to-r from-[#4C1D95] to-[#3B82F6] text-white shadow-lg hover:shadow-xl transition-all duration-300"
           >
             {actionButton.icon && <actionButton.icon className="w-4 h-4 mr-2" />}
             {actionButton.label}

@@ -56,67 +56,67 @@ const GestaoNoticias: React.FC = () => {
       {/* Header */}
       <div className="space-y-4">
         <div>
-          <h1 className="text-3xl font-bold">Gestão da Central</h1>
-          <p className="text-muted-foreground">
+          <h1 className="text-xl sm:text-3xl font-bold text-[#1E293B]">Gestão da Central</h1>
+          <p className="text-sm sm:text-base text-[#1E293B]/70">
             Publique e gerencie conteúdo da central do time
           </p>
         </div>
 
         {/* Estatísticas */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          <Card className="gradient-card shadow-card">
+          <Card className="bg-white shadow-card">
             <CardContent className="p-4">
               <div className="flex items-center space-x-3">
-                <div className="p-2 bg-primary/10 rounded-lg">
-                  <Chats className="w-5 h-5 text-primary" />
+                <div className="p-2 bg-[#4C1D95]/10 rounded-lg">
+                  <Chats className="w-5 h-5 text-[#4C1D95]" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold">{estatisticas.totalNoticias}</p>
-                  <p className="text-xs text-muted-foreground">Publicações da Central</p>
+                  <p className="text-2xl font-bold text-[#1E293B]">{estatisticas.totalNoticias}</p>
+                  <p className="text-xs text-[#1E293B]/70">Publicações da Central</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="gradient-card shadow-card">
+          <Card className="bg-white shadow-card">
             <CardContent className="p-4">
               <div className="flex items-center space-x-3">
-                <div className="p-2 bg-info/10 rounded-lg">
-                  <Eye className="w-5 h-5 text-info" />
+                <div className="p-2 bg-[#3B82F6]/10 rounded-lg">
+                  <Eye className="w-5 h-5 text-[#3B82F6]" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold">{estatisticas.totalVisualizacoes}</p>
-                  <p className="text-xs text-muted-foreground">Total de Views</p>
+                  <p className="text-2xl font-bold text-[#1E293B]">{estatisticas.totalVisualizacoes}</p>
+                  <p className="text-xs text-[#1E293B]/70">Total de Views</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="gradient-card shadow-card">
+          <Card className="bg-white shadow-card">
             <CardContent className="p-4">
               <div className="flex items-center space-x-3">
-                <div className="p-2 bg-success/10 rounded-lg">
-                  <CaretDown className="w-5 h-5 text-success" />
+                <div className="p-2 bg-[#22C55E]/10 rounded-lg">
+                  <CaretDown className="w-5 h-5 text-[#22C55E]" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold">{estatisticas.mediaVisualizacoes}</p>
-                  <p className="text-xs text-muted-foreground">Média por Notícia</p>
+                  <p className="text-2xl font-bold text-[#1E293B]">{estatisticas.mediaVisualizacoes}</p>
+                  <p className="text-xs text-[#1E293B]/70">Média por Notícia</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="gradient-card shadow-card">
+          <Card className="bg-white shadow-card">
             <CardContent className="p-4">
               <div className="flex items-center space-x-3">
-                <div className="p-2 bg-warning/10 rounded-lg">
-                  <Heart className="w-5 h-5 text-warning" />
+                <div className="p-2 bg-[#F59E0B]/10 rounded-lg">
+                  <Heart className="w-5 h-5 text-[#F59E0B]" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold">
+                  <p className="text-2xl font-bold text-[#1E293B]">
                     {noticias[0]?.likes || 0}
                   </p>
-                  <p className="text-xs text-muted-foreground">Total de Likes</p>
+                  <p className="text-xs text-[#1E293B]/70">Total de Likes</p>
                 </div>
               </div>
             </CardContent>
