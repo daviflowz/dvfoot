@@ -71,8 +71,8 @@ const JogosJogador: React.FC = () => {
       {/* Header */}
       <div className="space-y-3 sm:space-y-4">
         <div>
-          <h1 className="text-xl sm:text-3xl font-bold">Meus Jogos</h1>
-          <p className="text-sm sm:text-base text-muted-foreground">
+          <h1 className="text-xl sm:text-3xl font-bold text-center lg:text-left">Meus Jogos</h1>
+          <p className="text-sm sm:text-base text-muted-foreground text-center lg:text-left">
             Acompanhe os jogos e confirme sua presença
           </p>
         </div>

@@ -132,10 +132,10 @@ const GestaoJogos: React.FC = () => {
   };
 
   return (
-    <div className="space-y-3 sm:space-y-6 animate-fade-in px-4">
+    <div className="space-y-3 sm:space-y-6 animate-fade-in px-1">
       {/* Header */}
       <div className="space-y-3 sm:space-y-4">
-        <div className="text-center">
+        <div className="text-center lg:text-left">
           <h1 className="text-2xl font-bold text-[#1E293B] bg-gradient-to-r from-[#4C1D95] to-[#3B82F6] bg-clip-text text-transparent">
             Gestão de Jogos
           </h1>

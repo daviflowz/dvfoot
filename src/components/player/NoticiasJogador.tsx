@@ -75,8 +75,8 @@ const NoticiasJogador: React.FC = () => {
       {/* Header */}
       <div className="space-y-4">
         <div>
-          <h1 className="text-3xl font-bold">Central do Time</h1>
-          <p className="text-muted-foreground">
+          <h1 className="text-3xl font-bold text-center lg:text-left">Central do Time</h1>
+          <p className="text-muted-foreground text-center lg:text-left">
             Fique por dentro das últimas novidades
           </p>
         </div>

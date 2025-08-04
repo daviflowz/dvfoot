@@ -140,7 +140,7 @@ const SearchFilters: React.FC<SearchFiltersProps> = ({
             </div>
             
             {extraActions && (
-              <div className="flex gap-2">
+              <div className="w-full">
                 {extraActions}
               </div>
             )}

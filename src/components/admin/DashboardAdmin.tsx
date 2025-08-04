@@ -54,10 +54,10 @@ const DashboardAdmin: React.FC = () => {
   };
 
   return (
-    <div className="space-y-3 sm:space-y-6 animate-fade-in px-4">
+    <div className="space-y-3 sm:space-y-6 animate-fade-in px-1">
       {/* Header */}
       <div className="space-y-3 sm:space-y-4">
-        <div className="text-center">
+        <div className="text-center lg:text-left">
           <h1 className="text-2xl font-bold text-[#1E293B] bg-gradient-to-r from-[#4C1D95] to-[#3B82F6] bg-clip-text text-transparent">
             Gestão do Time
           </h1>
@@ -66,7 +66,7 @@ const DashboardAdmin: React.FC = () => {
 
         {/* Cards de Resumo */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4">
-          {estatisticas.map((stat, index) => {
+          {estatisticas.map((stat) => {
             const IconComponent = stat.icon;
             return (
               <Card 
@@ -99,61 +99,109 @@ const DashboardAdmin: React.FC = () => {
       </div>
 
       {/* Ações Rápidas */}
-      <section className="px-4 mt-6">
+      <section className="mt-6">
         <h2 className="text-lg font-semibold text-[#1E293B] mb-3">Ações Rápidas</h2>
-        <div className="grid grid-cols-2 gap-2">
-          <div 
-            className="bg-white rounded-xl shadow-card border border-gray-100 p-2 md:hover:shadow-md transition-all duration-300 cursor-pointer group"
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4">
+          <Card 
+            className="bg-gradient-to-br from-white to-gray-50/50 shadow-lg hover:shadow-xl border border-gray-100/50 hover:border-gray-200 transition-all duration-300 hover:scale-105 group cursor-pointer"
             onClick={handleCriarEvento}
           >
-            <div className="flex flex-col items-center justify-center space-y-1">
-              <div className="p-1.5 bg-[#4C1D95]/10 rounded-lg group-hover:bg-[#4C1D95]/20 transition-colors">
-                <Plus className="w-4 h-4 text-[#4C1D95]" />
+            <CardContent className="p-3 sm:p-4 relative overflow-hidden">
+              {/* Efeito de brilho no hover */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+              
+              <div className="flex items-center space-x-2 sm:space-x-3 relative z-10">
+                <div className={`p-1.5 sm:p-2 rounded-lg shadow-sm group-hover:shadow-md transition-all duration-300 bg-[#4C1D95]/10 group-hover:bg-[#4C1D95]/20`}>
+                  <Plus className="w-4 h-4 sm:w-5 sm:h-5 text-[#4C1D95] group-hover:scale-110 transition-transform duration-300" />
+                </div>
+                <div>
+                  <p className="text-lg sm:text-2xl font-bold text-[#1E293B] group-hover:text-[#4C1D95] transition-colors duration-300">Criar</p>
+                  <p className="text-xs text-[#1E293B]/70 group-hover:text-[#1E293B] transition-colors duration-300">Evento</p>
+                </div>
               </div>
-              <span className="font-medium text-[#1E293B] text-xs text-center">Criar Evento</span>
-            </div>
-          </div>
+              
+              {/* Decoração de fundo */}
+              <div className="absolute top-0 right-0 w-16 h-16 opacity-5 group-hover:opacity-10 transition-opacity duration-300">
+                <Plus className="w-full h-full" />
+              </div>
+            </CardContent>
+          </Card>
           
-          <div 
-            className="bg-white rounded-xl shadow-card border border-gray-100 p-2 md:hover:shadow-md transition-all duration-300 cursor-pointer group"
+          <Card 
+            className="bg-gradient-to-br from-white to-gray-50/50 shadow-lg hover:shadow-xl border border-gray-100/50 hover:border-gray-200 transition-all duration-300 hover:scale-105 group cursor-pointer"
             onClick={handleAgendarJogo}
           >
-            <div className="flex flex-col items-center justify-center space-y-1">
-              <div className="p-1.5 bg-[#EF4444]/10 rounded-lg group-hover:bg-[#EF4444]/20 transition-colors">
-                <Calendar className="w-4 h-4 text-[#EF4444]" />
+            <CardContent className="p-3 sm:p-4 relative overflow-hidden">
+              {/* Efeito de brilho no hover */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+              
+              <div className="flex items-center space-x-2 sm:space-x-3 relative z-10">
+                <div className={`p-1.5 sm:p-2 rounded-lg shadow-sm group-hover:shadow-md transition-all duration-300 bg-[#EF4444]/10 group-hover:bg-[#EF4444]/20`}>
+                  <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-[#EF4444] group-hover:scale-110 transition-transform duration-300" />
+                </div>
+                <div>
+                  <p className="text-lg sm:text-2xl font-bold text-[#1E293B] group-hover:text-[#4C1D95] transition-colors duration-300">Agendar</p>
+                  <p className="text-xs text-[#1E293B]/70 group-hover:text-[#1E293B] transition-colors duration-300">Jogo</p>
+                </div>
               </div>
-              <span className="font-medium text-[#1E293B] text-xs text-center">Agendar Jogo</span>
-            </div>
-          </div>
+              
+              {/* Decoração de fundo */}
+              <div className="absolute top-0 right-0 w-16 h-16 opacity-5 group-hover:opacity-10 transition-opacity duration-300">
+                <Calendar className="w-full h-full" />
+              </div>
+            </CardContent>
+          </Card>
           
-          <div 
-            className="bg-white rounded-xl shadow-card border border-gray-100 p-2 md:hover:shadow-md transition-all duration-300 cursor-pointer group"
+          <Card 
+            className="bg-gradient-to-br from-white to-gray-50/50 shadow-lg hover:shadow-xl border border-gray-100/50 hover:border-gray-200 transition-all duration-300 hover:scale-105 group cursor-pointer"
             onClick={handleAdicionarJogador}
           >
-            <div className="flex flex-col items-center justify-center space-y-1">
-              <div className="p-1.5 bg-[#22C55E]/10 rounded-lg group-hover:bg-[#22C55E]/20 transition-colors">
-                <UserPlus className="w-4 h-4 text-[#22C55E]" />
+            <CardContent className="p-3 sm:p-4 relative overflow-hidden">
+              {/* Efeito de brilho no hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+              
+              <div className="flex items-center space-x-2 sm:space-x-3 relative z-10">
+                <div className={`p-1.5 sm:p-2 rounded-lg shadow-sm group-hover:shadow-md transition-all duration-300 bg-[#22C55E]/10 group-hover:bg-[#22C55E]/20`}>
+                  <UserPlus className="w-4 h-4 sm:w-5 sm:h-5 text-[#22C55E] group-hover:scale-110 transition-transform duration-300" />
+                </div>
+                <div>
+                  <p className="text-lg sm:text-2xl font-bold text-[#1E293B] group-hover:text-[#4C1D95] transition-colors duration-300">Adicionar</p>
+                  <p className="text-xs text-[#1E293B]/70 group-hover:text-[#1E293B] transition-colors duration-300">Jogador</p>
+                </div>
               </div>
-              <span className="font-medium text-[#1E293B] text-xs text-center">Adicionar Jogador</span>
-            </div>
-          </div>
+              
+              {/* Decoração de fundo */}
+              <div className="absolute top-0 right-0 w-16 h-16 opacity-5 group-hover:opacity-10 transition-opacity duration-300">
+                <UserPlus className="w-full h-full" />
+              </div>
+            </CardContent>
+          </Card>
           
-          <div 
-            className="bg-white rounded-xl shadow-card border border-gray-100 p-2 md:hover:shadow-md transition-all duration-300 cursor-pointer group"
-            onClick={handleEnviarNotificacao}
+          <Card 
+            className="bg-gray-100/50 shadow-md border border-gray-200/50 transition-all duration-300 group cursor-not-allowed opacity-60"
           >
-            <div className="flex flex-col items-center justify-center space-y-1">
-              <div className="p-1.5 bg-[#3B82F6]/10 rounded-lg group-hover:bg-[#3B82F6]/20 transition-colors">
-                <Bell className="w-4 h-4 text-[#3B82F6]" />
+            <CardContent className="p-3 sm:p-4 relative overflow-hidden">
+              <div className="flex items-center space-x-2 sm:space-x-3 relative z-10">
+                <div className="p-1.5 sm:p-2 rounded-lg shadow-sm transition-all duration-300 bg-gray-200/50">
+                  <Bell className="w-4 h-4 sm:w-5 sm:h-5 text-gray-500" />
+                </div>
+                <div>
+                  <p className="text-lg sm:text-2xl font-bold text-gray-500">Enviar</p>
+                  <p className="text-xs text-gray-400">Notificação</p>
+                </div>
               </div>
-              <span className="font-medium text-[#1E293B] text-xs text-center">Enviar Notificação</span>
-            </div>
-          </div>
+              
+              {/* Decoração de fundo */}
+              <div className="absolute top-0 right-0 w-16 h-16 opacity-5 transition-opacity duration-300">
+                <Bell className="w-full h-full" />
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
       {/* Próximos Jogos */}
-      <section className="px-4 mt-8">
+      <section className="mt-6">
         <div className="flex items-center justify-between mb-3">
           <h2 className="text-lg font-semibold text-[#1E293B]">Próximos Jogos</h2>
           <Button 
@@ -165,20 +213,31 @@ const DashboardAdmin: React.FC = () => {
             Ver todos
           </Button>
         </div>
-        <div className="bg-white rounded-xl shadow-card p-5 flex flex-col items-center gap-1">
-          <Trophy className="w-8 h-8 text-[#4C1D95] mb-1" />
-          <span className="font-bold text-[#1E293B]">vs FC Rivais</span>
-          <span className="text-xs text-[#1E293B] font-normal">24/07/2024 • 15:00</span>
-          <span className="text-xs text-[#1E293B] font-normal">Estádio Municipal</span>
-          <Badge className="bg-[#3B82F6] text-white mt-2 rounded-full px-3 py-0.5">Agendado</Badge>
+        <div className="w-full">
+          <div className="bg-white rounded-xl shadow-card p-3 w-full">
+            <div className="flex items-center gap-4">
+              <div className="flex-shrink-0">
+                <div className="w-12 h-12 bg-gradient-to-br from-[#4C1D95] to-[#3B82F6] rounded-xl flex items-center justify-center">
+                  <Trophy className="w-6 h-6 text-white" />
+                </div>
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="font-bold text-[#1E293B] text-base">vs FC Rivais</span>
+                  <Badge className="bg-[#3B82F6] text-white text-xs px-3 py-1 rounded-full">Agendado</Badge>
+                </div>
+                <div className="flex items-center gap-1 text-sm text-[#1E293B]/70">
+                  <span>📅</span>
+                  <span>24/07/2024 • 15:00</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Linha divisória */}
-      <div className="border-t border-gray-200 my-6 mx-4" />
-
       {/* Próximos Eventos */}
-      <section className="px-4 mb-24">
+      <section className="mt-6">
         <div className="flex items-center justify-between mb-3">
           <h2 className="text-lg font-semibold text-[#1E293B]">Próximos Eventos</h2>
           <Button 
@@ -190,14 +249,31 @@ const DashboardAdmin: React.FC = () => {
             Ver todos
           </Button>
         </div>
-        <div className="bg-white rounded-xl shadow-card p-5 flex flex-col items-center gap-1">
-          <Calendar className="w-8 h-8 text-[#4C1D95] mb-1" />
-          <Badge className="bg-[#22C55E] text-white mt-2 rounded-full px-3 py-0.5">Confirmado</Badge>
-          <span className="font-bold text-[#1E293B]">Treino Técnico</span>
-          <span className="text-xs text-[#1E293B] font-normal">25/07/2024 • 19:00</span>
-          <span className="text-xs text-[#1E293B] font-normal">Campo Municipal</span>
+        <div className="w-full">
+          <div className="bg-white rounded-xl shadow-card p-3 w-full">
+            <div className="flex items-center gap-4">
+              <div className="flex-shrink-0">
+                <div className="w-12 h-12 bg-gradient-to-br from-[#22C55E] to-[#16A34A] rounded-xl flex items-center justify-center">
+                  <Calendar className="w-6 h-6 text-white" />
+                </div>
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="font-bold text-[#1E293B] text-base">Treino Técnico</span>
+                  <Badge className="bg-[#22C55E] text-white text-xs px-3 py-1 rounded-full">Confirmado</Badge>
+                </div>
+                <div className="flex items-center gap-1 text-sm text-[#1E293B]/70">
+                  <span>📅</span>
+                  <span>25/07/2024 • 19:00</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
+
+      {/* Espaçamento para o modal */}
+      <div className="mb-24" />
 
       {/* Modal Criar Evento */}
       <Dialog open={isCriarEventoOpen} onOpenChange={setIsCriarEventoOpen}>

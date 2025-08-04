@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useMemo } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import { Jogador } from '../types';
 import { playerService, PlayerFilters, PlayerStats } from '../services/playerService';
 
@@ -15,7 +15,6 @@ export const usePlayersOptimized = () => {
   const initialPlayers = playerService.getAllPlayers();
   
   const [players, setPlayers] = useState<Jogador[]>(initialPlayers);
-  const [filteredPlayers, setFilteredPlayers] = useState<Jogador[]>([]);
   const [stats, setStats] = useState<PlayerStats | null>(initialStats);
   const [loadingState, setLoadingState] = useState<LoadingState>({
     header: false,

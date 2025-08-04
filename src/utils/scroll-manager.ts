@@ -35,7 +35,7 @@ const forceScrollToTop = () => {
   // Método 6: Usar scrollIntoView
   try {
     document.body.scrollIntoView({ behavior: 'instant' });
-  } catch (e) {
+  } catch {
     // Ignorar erro
   }
 };

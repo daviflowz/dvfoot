@@ -17,7 +17,7 @@ export const useForceScrollTop = () => {
       // Método 2: window.scrollTo com smooth
       try {
         window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-      } catch (e) {
+      } catch {
         // Fallback se smooth não for suportado
         window.scrollTo(0, 0);
       }

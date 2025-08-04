@@ -12,7 +12,6 @@ import {
   Users,
   CheckCircle,
   XCircle,
-  Trophy,
   Lightning,
   Coffee,
   Target
@@ -93,8 +92,8 @@ const EventosJogador: React.FC = () => {
       {/* Header */}
       <div className="space-y-4">
         <div>
-          <h1 className="text-xl sm:text-3xl font-bold">Meus Eventos</h1>
-          <p className="text-muted-foreground">
+          <h1 className="text-xl sm:text-3xl font-bold text-center lg:text-left">Meus Eventos</h1>
+          <p className="text-muted-foreground text-center lg:text-left">
             Acompanhe os eventos do time e confirme sua presença
           </p>
         </div>

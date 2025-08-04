@@ -12,7 +12,8 @@ import {
   Bell,
   MapPin,
   Clock,
-  User
+  User,
+  Calendar
 } from 'phosphor-react';
 import { jogadores, jogos, eventos, noticias } from '../../data/mockData';
 import { useCascadeAnimation } from '../../hooks/use-cascade-animation';
@@ -37,7 +38,7 @@ const DashboardJogador: React.FC = () => {
       {/* Card de Perfil Principal */}
       <section className="flex flex-col items-center justify-center px-4 mt-4" style={getAnimationStyle(1)}>
         <div className="bg-white rounded-xl shadow-lg p-4 w-full max-w-xl flex flex-col items-center py-5 px-3 sm:py-6 sm:px-6">
-          <h1 className="text-xl sm:text-2xl font-bold text-[#1E293B] font-inter mb-1 text-center">
+          <h1 className="text-xl sm:text-2xl font-bold text-[#1E293B] font-inter mb-1 text-center lg:text-left">
             Olá, {jogadorData.nome}!
           </h1>
           <span className="text-[#1E293B] font-inter mb-1 text-center text-sm sm:text-base">
@@ -124,31 +125,34 @@ const DashboardJogador: React.FC = () => {
 
       {/* Próximos Jogos */}
       <section className="px-4 mt-8" style={getAnimationStyle(7)}>
-        <h2 className="text-lg font-bold text-[#1E293B] mb-1 text-left">Próximos Jogos</h2>
-        <p className="text-[#1E293B] mb-4 text-left">Confirme sua presença</p>
-        <div className="space-y-4">
+        <div className="flex items-center justify-between mb-3">
+          <h2 className="text-lg font-bold text-[#1E293B]">Próximos Jogos</h2>
+          <Button variant="link" className="text-[#4C1D95] px-0 text-sm">
+            Ver todos
+          </Button>
+        </div>
+        <div className="space-y-3">
           {proximosJogos.map((jogo, index) => {
             const minhaPresenca = jogo.presencas.find(p => p.jogadorId === jogadorData.id);
             const confirmou = minhaPresenca?.confirmou;
             return (
               <div 
                 key={jogo.id} 
-                className="bg-white rounded-xl shadow-lg p-5 flex flex-col gap-2"
+                className="bg-white rounded-xl shadow-lg p-4 flex items-center gap-3"
                 style={getAnimationStyle(8 + index)}
               >
-                <CheckCircle className={`w-7 h-7 mb-2 ${confirmou ? 'text-[#22C55E]' : 'text-gray-300'}`} />
-                <span className="font-bold text-[#1E293B] text-lg">vs {jogo.adversario}</span>
-                <span className="text-xs text-[#1E293B]">
-                  {new Date(jogo.data).toLocaleDateString('pt-BR')} • {jogo.horario}
-                </span>
-                <span className="text-xs text-[#1E293B]">{jogo.local}</span>
-                <div className="flex gap-2 mt-2">
-                  <Button className="bg-[#4C1D95] text-white font-medium rounded-full px-4 py-1" size="sm">
-                    Confirmado
-                  </Button>
-                  <Button variant="outline" className="text-[#4C1D95] border-[#4C1D95] font-medium rounded-full px-4 py-1 bg-white" size="sm">
-                    Alterar
-                  </Button>
+                <div className="flex-shrink-0">
+                  <Trophy className="w-8 h-8 text-[#4C1D95]" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="font-bold text-[#1E293B] text-base">vs {jogo.adversario}</span>
+                    <Badge className="bg-blue-600 text-white text-xs px-2 py-0.5">Agendado</Badge>
+                  </div>
+                  <div className="text-xs text-gray-600 space-y-0.5">
+                    <div>{new Date(jogo.data).toLocaleDateString('pt-BR')} • {jogo.horario}</div>
+                    <div>{jogo.local}</div>
+                  </div>
                 </div>
               </div>
             );
@@ -158,28 +162,32 @@ const DashboardJogador: React.FC = () => {
 
       {/* Próximos Eventos */}
       <section className="px-4 mt-8" style={getAnimationStyle(10)}>
-        <h2 className="text-lg font-bold text-[#1E293B] mb-1 text-left">Próximos Eventos</h2>
-        <p className="text-[#1E293B] mb-4 text-left">Treinos e atividades especiais</p>
-        <div className="space-y-4">
+        <div className="flex items-center justify-between mb-3">
+          <h2 className="text-lg font-bold text-[#1E293B]">Próximos Eventos</h2>
+          <Button variant="link" className="text-[#4C1D95] px-0 text-sm">
+            Ver todos
+          </Button>
+        </div>
+        <div className="space-y-3">
           {proximosEventos.map((evento, index) => (
             <div 
               key={evento.id} 
-              className="bg-white rounded-xl shadow-lg p-5 flex flex-col gap-2"
+              className="bg-white rounded-xl shadow-lg p-4 flex items-center gap-3"
               style={getAnimationStyle(11 + index)}
             >
-              <Trophy className="w-7 h-7 text-[#4C1D95] mb-2" />
-              <span className="font-bold text-[#1E293B] text-lg">{evento.nome}</span>
-              <span className="text-xs text-[#1E293B]">{evento.descricao}</span>
-              <span className="text-xs text-[#1E293B]">
-                {new Date(evento.data).toLocaleDateString('pt-BR')} • {evento.horario}
-              </span>
-              <div className="flex gap-2 mt-2">
-                <Button className="bg-[#4C1D95] text-white font-medium rounded-full px-4 py-1" size="sm">
-                  Confirmado
-                </Button>
-                <Button variant="outline" className="text-[#4C1D95] border-[#4C1D95] font-medium rounded-full px-4 py-1 bg-white" size="sm">
-                  Alterar
-                </Button>
+              <div className="flex-shrink-0">
+                <Calendar className="w-8 h-8 text-[#4C1D95]" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center justify-between mb-1">
+                  <span className="font-bold text-[#1E293B] text-base">{evento.nome}</span>
+                  <Badge className="bg-green-600 text-white text-xs px-2 py-0.5">Confirmado</Badge>
+                </div>
+                <div className="text-xs text-gray-600 space-y-0.5">
+                  <div>{evento.descricao}</div>
+                  <div>{new Date(evento.data).toLocaleDateString('pt-BR')} • {evento.horario}</div>
+                  <div>{evento.local}</div>
+                </div>
               </div>
             </div>
           ))}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { SpinnerGap, SoccerBall } from 'phosphor-react';
+import { SoccerBall } from 'phosphor-react';
 
 interface ProgressiveLoadingProps {
   currentStep: string;

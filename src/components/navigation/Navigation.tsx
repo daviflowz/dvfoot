@@ -72,8 +72,7 @@ const Navigation: React.FC = () => {
                 className="relative p-2 hover:bg-gray-100/80 rounded-full transition-all duration-200 hover:scale-105 active:scale-95"
               >
                 <div className="relative">
-                  <Bell className="w-6 h-6 text-[#1E293B]" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#4C1D95]/20 to-[#3B82F6]/20 rounded-full blur-sm"></div>
+                  <Bell className="w-6 h-6 text-gray-600" />
                 </div>
                 <span className="absolute -top-1 -right-1 w-5 h-5 flex items-center justify-center rounded-full bg-gradient-to-r from-[#EF4444] to-[#DC2626] text-white text-[10px] font-bold shadow-lg border-2 border-white animate-pulse">
                   3

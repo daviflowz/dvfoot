@@ -4,7 +4,7 @@ import { useEffect } from 'react';
  * Hook personalizado para scrollar para o topo da página
  * Pode ser usado em componentes específicos quando necessário
  */
-export const useScrollToTop = (dependencies: any[] = []) => {
+export const useScrollToTop = (dependencies: unknown[] = []) => {
   useEffect(() => {
     const scrollToTop = () => {
       // Método principal com smooth behavior
@@ -25,5 +25,6 @@ export const useScrollToTop = (dependencies: any[] = []) => {
     const timeoutId = setTimeout(scrollToTop, 50);
     
     return () => clearTimeout(timeoutId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, dependencies);
 }; 

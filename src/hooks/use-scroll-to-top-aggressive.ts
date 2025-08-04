@@ -26,7 +26,7 @@ export const useScrollToTopAggressive = () => {
         // Método 2: window.scrollTo com smooth
         try {
           window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-        } catch (e) {
+        } catch {
           // Fallback se smooth não for suportado
           window.scrollTo(0, 0);
         }
@@ -56,14 +56,14 @@ export const useScrollToTopAggressive = () => {
         // Método 7: scrollIntoView
         try {
           document.body.scrollIntoView({ behavior: 'instant' });
-        } catch (e) {
+        } catch {
           // Ignorar erro
         }
         
         // Método 8: Usar window.scroll
         try {
           window.scroll(0, 0);
-        } catch (e) {
+        } catch {
           // Ignorar erro
         }
       };

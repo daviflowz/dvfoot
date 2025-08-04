@@ -3,7 +3,6 @@ import { useAuth } from '../../contexts/AuthContext';
 import { useNavigation } from '../../hooks/use-navigation';
 import { Button } from '../ui/button';
 import {
-  Trophy,
   House,
   Users,
   SoccerBall,
@@ -44,26 +43,9 @@ const Sidebar: React.FC = () => {
   };
 
   return (
-    <div className="hidden lg:flex flex-col w-64 bg-white border-r border-gray-200 h-screen fixed left-0 top-0 z-50 shadow-md">
-      {/* Logo e Header */}
-      <div className="p-6 border-b border-gray-200">
-        <div className="flex items-center space-x-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 flex items-center justify-center shadow-card">
-            <Trophy className="w-6 h-6 text-white" />
-          </div>
-          <div>
-            <h1 className="text-xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-              Jogo em Foco
-            </h1>
-            <p className="text-sm text-muted-foreground font-medium">
-              {usuario?.tipo === 'administrador' ? '⚡ Admin' : '🎯 Pro'}
-            </p>
-          </div>
-        </div>
-      </div>
-
+    <div className="hidden lg:flex flex-col w-64 bg-white border-r border-gray-200 h-[calc(100vh-4rem)] fixed left-0 top-16 z-40 shadow-md">
       {/* Menu de Navegação */}
-      <nav className="flex-1 p-4 space-y-2">
+      <nav className="flex-1 p-4 space-y-2 pt-6">
         {menuItems.map((item) => {
           const IconComponent = item.icon;
           const isActive = isActiveRoute(item.id);
@@ -100,7 +82,7 @@ const Sidebar: React.FC = () => {
           </Button>
           <div className="relative">
             <Button variant="ghost" size="sm" className="p-2">
-              <Bell className="w-5 h-5" />
+              <Bell className="w-5 h-5 text-gray-600" />
             </Button>
             <span className="absolute w-4 h-4 flex items-center justify-center rounded-full bg-[#EF4444] text-white text-xs font-bold border-2 border-white" 
                   style={{top: 0, right: 0, transform: 'translate(20%, -20%)'}}>

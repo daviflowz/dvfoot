@@ -139,10 +139,10 @@ const GestaoJogadores: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen px-4 space-y-3 sm:space-y-6 animate-fade-in">
+          <div className="min-h-screen px-1 space-y-3 sm:space-y-6 animate-fade-in">
       {/* Header com estatísticas */}
       <div className="space-y-3 sm:space-y-4">
-        <div className="text-center">
+        <div className="text-center lg:text-left">
           <h1 className="text-2xl font-bold text-[#1E293B] bg-gradient-to-r from-[#4C1D95] to-[#3B82F6] bg-clip-text text-transparent">
             Gestão do Elenco
           </h1>
@@ -278,10 +278,10 @@ const GestaoJogadores: React.FC = () => {
             extraActions={
               <Button 
                 onClick={handleNewPlayer}
-                className="bg-gradient-to-r from-[#4C1D95] to-[#3B82F6] text-white shadow-lg hover:shadow-xl"
+                className="bg-gradient-to-r from-[#4C1D95] to-[#3B82F6] text-white shadow-lg hover:shadow-xl w-full"
               >
                 <Plus className="w-4 h-4 mr-2" />
-                Novo Jogador
+                <span className="text-sm">Novo Jogador</span>
               </Button>
             }
           />
