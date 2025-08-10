@@ -80,5 +80,9 @@ export default defineConfig(() => ({
       'clsx',
       'phosphor-react',
     ],
+    exclude: [
+      // Evita erro de pré-empacotamento do Vite para lucide-react
+      'lucide-react',
+    ],
   },
 }));

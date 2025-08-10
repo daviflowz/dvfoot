@@ -116,6 +116,7 @@
   ],
   "scope_extensions": [
     {
+      "type": "origin",
       "origin": "https://dvfoot.netlify.app"
     }
   ],
