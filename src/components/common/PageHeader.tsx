@@ -38,6 +38,9 @@ const PageHeader: React.FC<PageHeaderProps> = ({
       'blue': 'bg-primary/10 text-primary',
       'green': 'bg-success/10 text-success',
       'yellow': 'bg-warning/10 text-warning',
+      'info': 'bg-primary/10 text-primary',
+      'success': 'bg-success/10 text-success',
+      'warning': 'bg-warning/10 text-warning',
       'purple': 'bg-purple-100 text-purple-600',
       'red': 'bg-red-100 text-red-600',
       'gray': 'bg-gray-100 text-gray-600'

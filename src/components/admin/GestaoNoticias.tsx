@@ -3,24 +3,11 @@ import React, { useState } from 'react';
 import { Card, CardContent } from '../ui/card';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
-import { Badge } from '../ui/badge';
-import { Avatar, AvatarImage, AvatarFallback } from '../ui/avatar';
-import {
-  Chats,
-  Calendar,
-  Eye,
-  ThumbsUp,
-  ChatCircle,
-  Heart,
-  ShareNetwork,
-  CaretDown,
-  Users,
-  MagnifyingGlass,
-  Plus,
-  PencilSimple,
-  Trash
-} from 'phosphor-react';
+// removed unused avatar imports
+import { Chats, Eye, Heart, CaretDown, MagnifyingGlass, Plus } from 'phosphor-react';
 import { noticias } from '../../data/mockData';
+import PageHeader from '../common/PageHeader';
+import NoticiaCard from './components/NoticiaCard';
 
 const GestaoNoticias: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -39,90 +26,20 @@ const GestaoNoticias: React.FC = () => {
     noticiaRecente: noticias[0] ? new Date(noticias[0].dataPublicacao).getTime() : 0
   };
 
-  const formatarData = (data: string) => {
-    const agora = new Date();
-    const dataNoticia = new Date(data);
-    const diferenca = agora.getTime() - dataNoticia.getTime();
-    const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
-    
-    if (dias === 0) return 'Hoje';
-    if (dias === 1) return 'Ontem';
-    if (dias < 7) return `${dias} dias atrás`;
-    return dataNoticia.toLocaleDateString('pt-BR');
-  };
+  // removed unused formatarData
 
   return (
     <div className="space-y-6 animate-fade-in">
-      {/* Header */}
-      <div className="space-y-4">
-        <div>
-          <h1 className="text-2xl font-bold text-[#1E293B]">Gestão da Central</h1>
-          <p className="text-sm text-[#1E293B]/70">
-            Publique e gerencie conteúdo da central do time
-          </p>
-        </div>
-
-        {/* Estatísticas */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          <Card className="bg-white shadow-card">
-            <CardContent className="p-4">
-              <div className="flex items-center space-x-3">
-                <div className="p-2 bg-[#4C1D95]/10 rounded-lg">
-                  <Chats className="w-5 h-5 text-[#4C1D95]" />
-                </div>
-                <div>
-                  <p className="text-2xl font-bold text-[#1E293B]">{estatisticas.totalNoticias}</p>
-                  <p className="text-xs text-[#1E293B]/70">Publicações da Central</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="bg-white shadow-card">
-            <CardContent className="p-4">
-              <div className="flex items-center space-x-3">
-                <div className="p-2 bg-[#3B82F6]/10 rounded-lg">
-                  <Eye className="w-5 h-5 text-[#3B82F6]" />
-                </div>
-                <div>
-                  <p className="text-2xl font-bold text-[#1E293B]">{estatisticas.totalVisualizacoes}</p>
-                  <p className="text-xs text-[#1E293B]/70">Total de Views</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="bg-white shadow-card">
-            <CardContent className="p-4">
-              <div className="flex items-center space-x-3">
-                <div className="p-2 bg-[#22C55E]/10 rounded-lg">
-                  <CaretDown className="w-5 h-5 text-[#22C55E]" />
-                </div>
-                <div>
-                  <p className="text-2xl font-bold text-[#1E293B]">{estatisticas.mediaVisualizacoes}</p>
-                  <p className="text-xs text-[#1E293B]/70">Média por Notícia</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="bg-white shadow-card">
-            <CardContent className="p-4">
-              <div className="flex items-center space-x-3">
-                <div className="p-2 bg-[#F59E0B]/10 rounded-lg">
-                  <Heart className="w-5 h-5 text-[#F59E0B]" />
-                </div>
-                <div>
-                  <p className="text-2xl font-bold text-[#1E293B]">
-                    {noticias[0]?.likes || 0}
-                  </p>
-                  <p className="text-xs text-[#1E293B]/70">Total de Likes</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </div>
+      <PageHeader
+        title="Gestão da Central"
+        description="Publique e gerencie conteúdo da central do time"
+        stats={[
+          { title: 'Publicações da Central', value: estatisticas.totalNoticias, icon: Chats as any, color: 'blue' },
+          { title: 'Total de Views', value: estatisticas.totalVisualizacoes, icon: Eye as any, color: 'info' },
+          { title: 'Média por Notícia', value: estatisticas.mediaVisualizacoes, icon: CaretDown as any, color: 'success' },
+          { title: 'Total de Likes', value: noticias[0]?.likes || 0, icon: Heart as any, color: 'warning' },
+        ]}
+      />
 
       {/* Controles */}
       <Card className="shadow-card">
@@ -149,125 +66,7 @@ const GestaoNoticias: React.FC = () => {
               {/* Lista da Central */}
       <div className="grid gap-6">
         {noticiasFiltradas.map((noticia, index) => (
-          <Card key={noticia.id} className="bg-white rounded-xl border sm:shadow-card shadow-none card-hover animate-scale-in overflow-hidden" style={{ animationDelay: `${index * 50}ms` }}>
-            <CardContent className="p-0">
-              <div className="p-4 sm:p-6 space-y-4">
-                {/* Header da Notícia */}
-                <div className="flex flex-col sm:flex-row items-start justify-between gap-4 sm:gap-0">
-                  <div className="flex items-start space-x-3 sm:space-x-4 flex-1">
-                    <Avatar className="w-10 h-10 sm:w-12 sm:h-12 border-2 border-primary/20">
-                      <AvatarImage src={noticia.autorFoto} alt={noticia.autorNome} />
-                      <AvatarFallback>{noticia.autorNome.split(' ').map(n => n[0]).join('')}</AvatarFallback>
-                    </Avatar>
-                    
-                    <div className="space-y-2 flex-1">
-                      <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-                        <h3 className="text-lg sm:text-xl font-bold line-clamp-2">{noticia.titulo}</h3>
-                        {noticia.destaque && (
-                          <Badge className="gradient-warning text-white shadow-glow">
-                            Destaque
-                          </Badge>
-                        )}
-                      </div>
-                      
-                      <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-xs sm:text-sm text-muted-foreground">
-                        <span className="flex items-center">
-                          <Users className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
-                          {noticia.autorNome}
-                        </span>
-                        <span className="flex items-center">
-                          <Calendar className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
-                          {formatarData(noticia.dataPublicacao)}
-                        </span>
-                        <Badge variant="outline" className="text-xs">
-                          {noticia.categoria}
-                        </Badge>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center space-x-2 self-end sm:self-start">
-                    <Button variant="ghost" size="sm">
-                      <PencilSimple className="w-4 h-4" />
-                    </Button>
-                    <Button variant="ghost" size="sm" className="text-destructive hover:text-destructive">
-                      <Trash className="w-4 h-4" />
-                    </Button>
-                  </div>
-                </div>
-
-                {/* Prévia do Conteúdo */}
-                <div className="space-y-3">
-                  <p className="text-muted-foreground leading-relaxed line-clamp-3">
-                    {noticia.conteudo}
-                  </p>
-                  
-                  {noticia.imagem && (
-                    <div className="relative rounded-lg overflow-hidden bg-accent/30 h-48">
-                      <img 
-                        src={noticia.imagem} 
-                        alt={noticia.titulo}
-                        className="w-full h-full object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                    </div>
-                  )}
-                </div>
-
-                {/* Estatísticas e Ações */}
-                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-4 border-t border-border">
-                  <div className="flex items-center gap-4 sm:gap-6 text-xs sm:text-sm text-muted-foreground">
-                    <div className="flex items-center space-x-1">
-                      <Eye className="w-3 h-3 sm:w-4 sm:h-4" />
-                      <span>{noticia.visualizacoes.toLocaleString()}</span>
-                    </div>
-                    <div className="flex items-center space-x-1">
-                      <ThumbsUp className="w-3 h-3 sm:w-4 sm:h-4" />
-                      <span>{noticia.likes}</span>
-                    </div>
-                    <div className="flex items-center space-x-1">
-                      <ChatCircle className="w-3 h-3 sm:w-4 sm:h-4" />
-                      <span>{noticia.comentarios}</span>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-2 w-full sm:w-auto">
-                    <Button variant="outline" size="sm" className="flex-1 sm:flex-none justify-center">
-                      <Eye className="w-4 h-4 mr-2" />
-                      Visualizar
-                    </Button>
-                    <Button variant="outline" size="sm" className="flex-1 sm:flex-none justify-center">
-                      <ShareNetwork className="w-4 h-4 mr-2" />
-                      Compartilhar
-                    </Button>
-                  </div>
-                </div>
-
-                {/* Métricas de Engajamento */}
-                <div className="bg-accent/20 rounded-lg p-3 sm:p-4">
-                  <h4 className="font-semibold text-xs sm:text-sm mb-3 flex items-center">
-                    <CaretDown className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2 text-primary" />
-                    Engajamento
-                  </h4>
-                  
-                  <div className="grid grid-cols-3 gap-2 sm:gap-4 text-center">
-                    <div className="p-2 rounded-md hover:bg-accent/30 transition-colors">
-                      <p className="text-base sm:text-lg font-bold text-primary">{noticia.visualizacoes}</p>
-                      <p className="text-xs text-muted-foreground">Visualizações</p>
-                    </div>
-                    <div className="p-2 rounded-md hover:bg-accent/30 transition-colors">
-                      <p className="text-base sm:text-lg font-bold text-success">{noticia.likes}</p>
-                      <p className="text-xs text-muted-foreground">Curtidas</p>
-                    </div>
-                    <div className="p-2 rounded-md hover:bg-accent/30 transition-colors">
-                      <p className="text-base sm:text-lg font-bold text-info">{noticia.comentarios}</p>
-                      <p className="text-xs text-muted-foreground">Comentários</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+          <NoticiaCard key={noticia.id} noticia={noticia} index={index} />
         ))}
       </div>
 
